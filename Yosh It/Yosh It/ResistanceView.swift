@@ -1,21 +1,22 @@
 //
-//  ContentView.swift
+//  ResistanceView.swift
 //  Yosh It
 //
 //  Created by Alex Yoshida on 2023-01-08.
 //
 
+import Foundation
 import SwiftUI
 
-struct ContentView: View {
+struct ResistanceView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ResistanceView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ResistanceView()
     }
 }
