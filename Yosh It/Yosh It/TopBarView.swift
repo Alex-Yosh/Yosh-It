@@ -9,15 +9,24 @@ import Foundation
 import SwiftUI
 
 struct TopBarView: View {
+    
+    @State var title: String?
+    
     var body: some View {
         HStack (alignment: .bottom){
-            Text("Resistance").foregroundColor(Color.white)
-        }.frame(maxWidth: .infinity).edgesIgnoringSafeArea(.all).background(CustomColours.MainIndigo)
+            Text(title!)
+            Spacer()
+            Image(systemName: "gearshape.fill")
+        }.foregroundColor(.white)
+            .frame(maxWidth:.infinity)
+            .padding()
+            .background(CustomColours.MainIndigo)
     }
 }
 
 struct TopBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TopBarView()
+        TopBarView(title:"Title")
     }
 }
+

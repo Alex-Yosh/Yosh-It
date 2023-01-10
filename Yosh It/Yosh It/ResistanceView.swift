@@ -10,8 +10,11 @@ import SwiftUI
 
 struct ResistanceView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            TopBarView(title:"Resistance")
+            Spacer()
+            Text("dsedsd")
+        }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
     }
 }
 
