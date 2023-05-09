@@ -13,7 +13,6 @@ struct ResistanceView: View {
         VStack{
             TopBarView(title:"Resistance")
             Spacer()
-            Text("dsedsd")
         }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
     }
 }
