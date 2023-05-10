@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
 		FADD0879296B5E79001C7BD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAD0AFB72A0B202700657145 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				FADD0889296B64D4001C7BD3 /* CustomColours.swift */,
+				FADD0879296B5E79001C7BD3 /* Assets.xcassets */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
 		FADD0869296B5E77001C7BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -64,8 +74,8 @@
 				FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */,
 				FAF390A92A0AC602006E9C96 /* ViewModels */,
 				FAF390A82A0AC486006E9C96 /* Views */,
-				FADD0889296B64D4001C7BD3 /* CustomColours.swift */,
-				FADD0879296B5E79001C7BD3 /* Assets.xcassets */,
+				FAD0AFB72A0B202700657145 /* misc */,
+				FAD0AFB52A0B1E9D00657145 /* Info.plist */,
 				FADD087B296B5E79001C7BD3 /* Preview Content */,
 			);
 			path = "Yosh It";
@@ -306,6 +316,7 @@
 				DEVELOPMENT_TEAM = YV26NS784Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Yosh It/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,6 +347,7 @@
 				DEVELOPMENT_TEAM = YV26NS784Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Yosh It/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
