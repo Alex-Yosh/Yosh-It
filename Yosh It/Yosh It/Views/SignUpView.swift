@@ -46,15 +46,9 @@ struct SignUpView: View {
                 }.padding()
                 
                 
-                Button(action: {signUpViewModel.showNextScreen = true}) {
+                NavigationLink(destination: ResistanceView().navigationBarTitle("") .navigationBarHidden(true), label:{
                     Text("Sign up")
-                }.disabled(!self.signUpViewModel.isValid)
-                
-                
-                //navigation
-                NavigationLink(destination: ResistanceView().navigationBarTitle("")
-                    .navigationBarHidden(true), isActive: $signUpViewModel.showNextScreen, label: {EmptyView()})
-                
+                }).disabled(!self.signUpViewModel.isValid)
             }
         }.navigationViewStyle(.stack)
     }

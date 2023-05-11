@@ -21,8 +21,7 @@ class SignUpViewModel: ObservableObject{
     @Published var usernameMessages = [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements)
     @Published var passwordMessages = [String] (repeating: " ", count: C.SignUpPage.numPasswordRequirements)
     
-    //Navigation
-    @Published var showNextScreen = false
+    @Published var isRemembered = false
     @Published var isValid = false
     
     private var cancellableSet: Set<AnyCancellable> = []

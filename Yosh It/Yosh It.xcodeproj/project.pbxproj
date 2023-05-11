@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB32A0D961C00014CA2 /* Constants.swift */; };
+		FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */; };
+		FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		FA1C3FB32A0D961C00014CA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 				FADD0883296B611B001C7BD3 /* ResistanceView.swift */,
 				FADD0885296B61BB001C7BD3 /* TopBarView.swift */,
 				FAF390AE2A0AC776006E9C96 /* SignUpView.swift */,
+				FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				FAF390AA2A0AC62F006E9C96 /* ResistanceViewModel.swift */,
 				FAF390B02A0ACA93006E9C96 /* SignUpViewModel.swift */,
+				FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -184,10 +190,12 @@
 				FADD088A296B64D4001C7BD3 /* CustomColours.swift in Sources */,
 				FAF390AF2A0AC776006E9C96 /* SignUpView.swift in Sources */,
 				FADD0884296B611B001C7BD3 /* ResistanceView.swift in Sources */,
+				FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */,
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,
 				FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */,
 				FAF390AB2A0AC62F006E9C96 /* ResistanceViewModel.swift in Sources */,
 				FAF390B12A0ACA93006E9C96 /* SignUpViewModel.swift in Sources */,
+				FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */,
 				FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
