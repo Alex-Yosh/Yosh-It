@@ -10,15 +10,6 @@ import Combine
 
 class SignUpViewModel: ObservableObject{
     
-    //requirements
-    static let numUsernameRequirements = 2
-    static let numPasswordRequirements = 2
-    let usernameRequiredLength = 6
-    let usernameMaxLength = 10
-    
-    let passwordRequiredLength = 6
-    let passwordMaxLength = 10
-    
     
     //User Info
     @Published var username = ""
@@ -27,8 +18,8 @@ class SignUpViewModel: ObservableObject{
     
     
     //Footer Messages
-    @Published var usernameMessages = [String] (repeating: " ", count: numUsernameRequirements)
-    @Published var passwordMessages = [String] (repeating: " ", count: numUsernameRequirements)
+    @Published var usernameMessages = [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements)
+    @Published var passwordMessages = [String] (repeating: " ", count: C.SignUpPage.numPasswordRequirements)
     
     //Navigation
     @Published var showNextScreen = false
@@ -42,7 +33,7 @@ class SignUpViewModel: ObservableObject{
         $username
             .removeDuplicates()
             .map{   i in
-                return i.count >= self.usernameRequiredLength
+                return i.count >= C.SignUpPage.usernameRequiredLength
             }
             .eraseToAnyPublisher()
     }
@@ -52,7 +43,7 @@ class SignUpViewModel: ObservableObject{
         $username
             .removeDuplicates()
             .map{   i in
-                return i.count <= self.usernameMaxLength
+                return i.count <= C.SignUpPage.usernameMaxLength
             }
             .eraseToAnyPublisher()
     }
@@ -61,7 +52,7 @@ class SignUpViewModel: ObservableObject{
     private var isUsernameValidPublisher: AnyPublisher<[String], Never> {
         Publishers.CombineLatest(isUsernameLongEnoguhPublisher, isUsernameTooLongPublisher)
             .map { isUsernameLongEnoguh, isUsernameTooLong in
-                var usernameMessages = [String] (repeating: " ", count: SignUpViewModel.numUsernameRequirements)
+                var usernameMessages = [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements)
                 if (!isUsernameLongEnoguh) {
                     usernameMessages[usernameMessages.firstIndex(where: { value in
                         value == " "
@@ -85,7 +76,7 @@ class SignUpViewModel: ObservableObject{
         $password
             .removeDuplicates()
             .map{   i in
-                return i.count >= self.usernameRequiredLength
+                return i.count >= C.SignUpPage.usernameRequiredLength
             }
             .eraseToAnyPublisher()
     }
@@ -95,7 +86,7 @@ class SignUpViewModel: ObservableObject{
         $password
             .removeDuplicates()
             .map{   i in
-                return i.count <= self.usernameMaxLength
+                return i.count <= C.SignUpPage.usernameMaxLength
             }
             .eraseToAnyPublisher()
     }
@@ -113,7 +104,7 @@ class SignUpViewModel: ObservableObject{
     private var isPasswordValidPublisher: AnyPublisher<[String], Never> {
         Publishers.CombineLatest3(isPasswordLongEnoguhPublisher, isPasswordTooLongPublisher, isPasswordEqual)
             .map { isPasswordLongEnoguh, isPasswordTooLong, isPasswordEqual in
-                var passwordMessages = [String] (repeating: " ", count: SignUpViewModel.numPasswordRequirements)
+                var passwordMessages = [String] (repeating: " ", count: C.SignUpPage.numPasswordRequirements)
                 if (!isPasswordLongEnoguh) {
                     passwordMessages[passwordMessages.firstIndex(where: { value in
                         value == " "
@@ -142,8 +133,8 @@ class SignUpViewModel: ObservableObject{
     private var isAbleToSignUp: AnyPublisher<Bool, Never>{
         Publishers.CombineLatest(isUsernameValidPublisher, isPasswordValidPublisher)
             .map{ usernameMessages, passwordMessages in
-                if (usernameMessages == [String] (repeating: " ", count: SignUpViewModel.numUsernameRequirements) &&
-                    passwordMessages == [String] (repeating: " ", count: SignUpViewModel.numPasswordRequirements)){
+                if (usernameMessages == [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements) &&
+                    passwordMessages == [String] (repeating: " ", count: C.SignUpPage.numPasswordRequirements)){
                     return true
                 }
                 return false
@@ -154,18 +145,25 @@ class SignUpViewModel: ObservableObject{
         
         isUsernameValidPublisher
             .receive(on: RunLoop.main)
-            .assign(to: \.usernameMessages, on: self)
+            .sink(receiveValue: { [weak self] in
+                self?.usernameMessages = $0
+            })
             .store(in: &cancellableSet)
         
         isPasswordValidPublisher
             .receive(on: RunLoop.main)
-            .assign(to: \.passwordMessages, on: self)
+            .sink(receiveValue: { [weak self] in
+                self?.passwordMessages = $0
+            })
             .store(in: &cancellableSet)
         
         isAbleToSignUp
             .receive(on: RunLoop.main)
-            .assign(to: \.isValid, on:self)
+            .sink(receiveValue: { [weak self] in
+                self?.isValid = $0
+            })
             .store(in: &cancellableSet)
-        
     }
+    
+    
 }

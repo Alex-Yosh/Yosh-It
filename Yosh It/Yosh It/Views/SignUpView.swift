@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @ObservedObject private var signUpViewModel = SignUpViewModel()
+    @StateObject var signUpViewModel = SignUpViewModel()
     
     var body: some View {
         NavigationView{
@@ -21,7 +21,7 @@ struct SignUpView: View {
                         .autocapitalization(.none)
                         .padding()
                         .overlay(RoundedRectangle(cornerRadius: 20.0).strokeBorder(CustomColours.MainIndigo, style: StrokeStyle(lineWidth: 3.0)))
-                    ForEach(0...SignUpViewModel.numUsernameRequirements-1, id: \.self){i in
+                    ForEach(0...C.SignUpPage.numUsernameRequirements-1, id: \.self){i in
                         Text(signUpViewModel.usernameMessages[i])
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity ,alignment: .leading)
@@ -38,7 +38,7 @@ struct SignUpView: View {
                     .autocapitalization(.none)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 20.0).strokeBorder(CustomColours.MainIndigo, style: StrokeStyle(lineWidth: 3.0)))
-                    ForEach(0...SignUpViewModel.numPasswordRequirements-1, id: \.self){i in
+                    ForEach(0...C.SignUpPage.numPasswordRequirements-1, id: \.self){i in
                         Text(signUpViewModel.passwordMessages[i])
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity ,alignment: .leading)
@@ -53,11 +53,10 @@ struct SignUpView: View {
                 
                 //navigation
                 NavigationLink(destination: ResistanceView().navigationBarTitle("")
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true), isActive: $signUpViewModel.showNextScreen, label: {EmptyView()})
+                    .navigationBarHidden(true), isActive: $signUpViewModel.showNextScreen, label: {EmptyView()})
                 
             }
-        }
+        }.navigationViewStyle(.stack)
     }
     
     
