@@ -10,6 +10,8 @@
 		FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB32A0D961C00014CA2 /* Constants.swift */; };
 		FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */; };
 		FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */; };
+		FA1C3FBA2A0EB38200014CA2 /* ResistanceGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */; };
+		FA1C3FBC2A0EB47200014CA2 /* Splits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FBB2A0EB47200014CA2 /* Splits.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		FA1C3FB32A0D961C00014CA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistanceGridView.swift; sourceTree = "<group>"; };
+		FA1C3FBB2A0EB47200014CA2 /* Splits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splits.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */,
+				FA1C3FBB2A0EB47200014CA2 /* Splits.swift */,
 				FAF390A92A0AC602006E9C96 /* ViewModels */,
 				FAF390A82A0AC486006E9C96 /* Views */,
 				FAD0AFB72A0B202700657145 /* misc */,
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FADD0883296B611B001C7BD3 /* ResistanceView.swift */,
+				FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */,
 				FADD0885296B61BB001C7BD3 /* TopBarView.swift */,
 				FAF390AE2A0AC776006E9C96 /* SignUpView.swift */,
 				FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */,
@@ -194,8 +200,10 @@
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,
 				FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */,
 				FAF390AB2A0AC62F006E9C96 /* ResistanceViewModel.swift in Sources */,
+				FA1C3FBA2A0EB38200014CA2 /* ResistanceGridView.swift in Sources */,
 				FAF390B12A0ACA93006E9C96 /* SignUpViewModel.swift in Sources */,
 				FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */,
+				FA1C3FBC2A0EB47200014CA2 /* Splits.swift in Sources */,
 				FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

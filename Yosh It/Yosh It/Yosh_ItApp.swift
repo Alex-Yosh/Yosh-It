@@ -11,7 +11,7 @@ import SwiftUI
 struct Yosh_ItApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ResistanceView()
         }
     }
 }

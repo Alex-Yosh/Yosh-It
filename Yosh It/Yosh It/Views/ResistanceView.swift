@@ -9,11 +9,22 @@ import Foundation
 import SwiftUI
 
 struct ResistanceView: View {
+    
+    @StateObject var ResistnaceViewModel = ResistanceViewModel()
+    
     var body: some View {
-        VStack{
-            TopBarView(title:"Resistance")
-            Spacer()
-        }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
+        NavigationView(){
+            VStack{
+                TopBarView(title:"Resistance")
+                Spacer()
+                
+                ScrollView{
+                    ResistanceGridView(splits: $ResistnaceViewModel.splits)
+                }
+            }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
+            
+            
+        }
     }
 }
 

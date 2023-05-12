@@ -10,4 +10,7 @@ import Foundation
 
 class ResistanceViewModel: ObservableObject{
     
+    @Published var splits = [Split]()
+    
+    
 }
