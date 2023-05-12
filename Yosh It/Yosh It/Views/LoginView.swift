@@ -16,28 +16,30 @@ struct LoginView: View {
         NavigationView{
             VStack{
                 
-                    TextField("Username", text: $loginViewModel.username)
-                        .autocapitalization(.none)
-                        .padding()
-                        .overlay(RoundedRectangle(cornerRadius: 20.0).strokeBorder(CustomColours.MainIndigo, style: StrokeStyle(lineWidth: 3.0)))
-                
-                
-                    VStack{
-                        SecureField("Password", text: $loginViewModel.password)
-                    }
+                TextField("Username", text: $loginViewModel.username)
                     .autocapitalization(.none)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 20.0).strokeBorder(CustomColours.MainIndigo, style: StrokeStyle(lineWidth: 3.0)))
-                    
-                    }
                 
                 
+                VStack{
+                    SecureField("Password", text: $loginViewModel.password)
+                }
+                .autocapitalization(.none)
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 20.0).strokeBorder(CustomColours.MainIndigo, style: StrokeStyle(lineWidth: 3.0)))
+                
+                
+                NavigationLink(destination: SignUpView().navigationBarTitle(""), label:{
+                    Text("Sign Up")
+                })
                 NavigationLink(destination: ResistanceView().navigationBarTitle("") .navigationBarHidden(true), label:{
-                    Text("Sign up")
+                    Text("Log In")
                 }).disabled(!self.loginViewModel.isValid)
+            }
         }.padding()
             .navigationViewStyle(.stack)
-        }
+    }
     
 }
 
