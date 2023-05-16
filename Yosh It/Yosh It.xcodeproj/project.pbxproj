@@ -11,7 +11,18 @@
 		FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */; };
 		FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */; };
 		FA1C3FBA2A0EB38200014CA2 /* ResistanceGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */; };
-		FA1C3FBC2A0EB47200014CA2 /* Splits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FBB2A0EB47200014CA2 /* Splits.swift */; };
+		FA1C3FBC2A0EB47200014CA2 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FBB2A0EB47200014CA2 /* Split.swift */; };
+		FA3A0D3A2A12BCC20013A620 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0D392A12BCC20013A620 /* Strings.swift */; };
+		FA3A0DF12A12E68E0013A620 /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DB32A12E0C00013A620 /* SignUpViewModelTests.swift */; };
+		FA3A0DF22A12E68E0013A620 /* ResistanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DA52A12E0660013A620 /* ResistanceViewModelTests.swift */; };
+		FA3A0DF32A12E68E0013A620 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DCB2A12E3590013A620 /* LoginViewModelTests.swift */; };
+		FA3A0DF42A12E69D0013A620 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */; };
+		FA3A0DF52A12E6A00013A620 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF390B02A0ACA93006E9C96 /* SignUpViewModel.swift */; };
+		FA3A0DF62A12E6A20013A620 /* ResistanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF390AA2A0AC62F006E9C96 /* ResistanceViewModel.swift */; };
+		FA3A0DF72A12E6A60013A620 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0D392A12BCC20013A620 /* Strings.swift */; };
+		FA3A0DF82A12E6A80013A620 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB32A0D961C00014CA2 /* Constants.swift */; };
+		FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FBB2A0EB47200014CA2 /* Split.swift */; };
+		FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -23,12 +34,28 @@
 		FAF390B12A0ACA93006E9C96 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF390B02A0ACA93006E9C96 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FA3A0DEC2A12E6850013A620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADD086A296B5E77001C7BD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FADD0871296B5E77001C7BD3;
+			remoteInfo = "Yosh It";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		FA1C3FB32A0D961C00014CA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistanceGridView.swift; sourceTree = "<group>"; };
-		FA1C3FBB2A0EB47200014CA2 /* Splits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splits.swift; sourceTree = "<group>"; };
+		FA1C3FBB2A0EB47200014CA2 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
+		FA3A0D392A12BCC20013A620 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		FA3A0DA52A12E0660013A620 /* ResistanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistanceViewModelTests.swift; sourceTree = "<group>"; };
+		FA3A0DB32A12E0C00013A620 /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
+		FA3A0DCB2A12E3590013A620 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		FA3A0DE82A12E6850013A620 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTests.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -43,6 +70,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA3A0DE52A12E6850013A620 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD086F296B5E77001C7BD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,11 +87,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA3A0DC22A12E2C40013A620 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		FA3A0DE92A12E6850013A620 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A0DFA2A12E6C40013A620 /* ViewModels */,
+				FA3A0DFB2A12E6DD0013A620 /* Models */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		FA3A0DFA2A12E6C40013A620 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A0DA52A12E0660013A620 /* ResistanceViewModelTests.swift */,
+				FA3A0DB32A12E0C00013A620 /* SignUpViewModelTests.swift */,
+				FA3A0DCB2A12E3590013A620 /* LoginViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FA3A0DFB2A12E6DD0013A620 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FAD0AFB72A0B202700657145 /* misc */ = {
 			isa = PBXGroup;
 			children = (
 				FADD0889296B64D4001C7BD3 /* CustomColours.swift */,
 				FA1C3FB32A0D961C00014CA2 /* Constants.swift */,
+				FA3A0D392A12BCC20013A620 /* Strings.swift */,
 				FADD0879296B5E79001C7BD3 /* Assets.xcassets */,
 			);
 			path = misc;
@@ -67,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				FADD0874296B5E77001C7BD3 /* Yosh It */,
+				FA3A0DC22A12E2C40013A620 /* Tests */,
+				FA3A0DE92A12E6850013A620 /* UnitTests */,
 				FADD0873296B5E77001C7BD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				FADD0872296B5E77001C7BD3 /* Yosh It.app */,
+				FA3A0DE82A12E6850013A620 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */,
-				FA1C3FBB2A0EB47200014CA2 /* Splits.swift */,
+				FA1C3FBB2A0EB47200014CA2 /* Split.swift */,
 				FAF390A92A0AC602006E9C96 /* ViewModels */,
 				FAF390A82A0AC486006E9C96 /* Views */,
 				FAD0AFB72A0B202700657145 /* misc */,
@@ -126,6 +198,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA3A0DE72A12E6850013A620 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA3A0DEE2A12E6850013A620 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				FA3A0DE42A12E6850013A620 /* Sources */,
+				FA3A0DE52A12E6850013A620 /* Frameworks */,
+				FA3A0DE62A12E6850013A620 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA3A0DED2A12E6850013A620 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = FA3A0DE82A12E6850013A620 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FADD0871296B5E77001C7BD3 /* Yosh It */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADD0880296B5E79001C7BD3 /* Build configuration list for PBXNativeTarget "Yosh It" */;
@@ -150,9 +240,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					FA3A0DE72A12E6850013A620 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FADD0871296B5E77001C7BD3;
+					};
 					FADD0871296B5E77001C7BD3 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -172,11 +266,19 @@
 			projectRoot = "";
 			targets = (
 				FADD0871296B5E77001C7BD3 /* Yosh It */,
+				FA3A0DE72A12E6850013A620 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA3A0DE62A12E6850013A620 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD0870296B5E77001C7BD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +291,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA3A0DE42A12E6850013A620 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3A0DF42A12E69D0013A620 /* LoginViewModel.swift in Sources */,
+				FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */,
+				FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */,
+				FA3A0DF62A12E6A20013A620 /* ResistanceViewModel.swift in Sources */,
+				FA3A0DF32A12E68E0013A620 /* LoginViewModelTests.swift in Sources */,
+				FA3A0DF52A12E6A00013A620 /* SignUpViewModel.swift in Sources */,
+				FA3A0DF12A12E68E0013A620 /* SignUpViewModelTests.swift in Sources */,
+				FA3A0DF22A12E68E0013A620 /* ResistanceViewModelTests.swift in Sources */,
+				FA3A0DF72A12E6A60013A620 /* Strings.swift in Sources */,
+				FA3A0DF82A12E6A80013A620 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD086E296B5E77001C7BD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,17 +319,66 @@
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,
 				FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */,
 				FAF390AB2A0AC62F006E9C96 /* ResistanceViewModel.swift in Sources */,
+				FA3A0D3A2A12BCC20013A620 /* Strings.swift in Sources */,
 				FA1C3FBA2A0EB38200014CA2 /* ResistanceGridView.swift in Sources */,
 				FAF390B12A0ACA93006E9C96 /* SignUpViewModel.swift in Sources */,
 				FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */,
-				FA1C3FBC2A0EB47200014CA2 /* Splits.swift in Sources */,
+				FA1C3FBC2A0EB47200014CA2 /* Split.swift in Sources */,
 				FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FA3A0DED2A12E6850013A620 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FADD0871296B5E77001C7BD3 /* Yosh It */;
+			targetProxy = FA3A0DEC2A12E6850013A620 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FA3A0DEF2A12E6850013A620 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YV26NS784Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yosh.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yosh It.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yosh It";
+			};
+			name = Debug;
+		};
+		FA3A0DF02A12E6850013A620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YV26NS784Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yosh.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yosh It.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yosh It";
+			};
+			name = Release;
+		};
 		FADD087E296B5E79001C7BD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -390,6 +558,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA3A0DEE2A12E6850013A620 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA3A0DEF2A12E6850013A620 /* Debug */,
+				FA3A0DF02A12E6850013A620 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FADD086D296B5E77001C7BD3 /* Build configuration list for PBXProject "Yosh It" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

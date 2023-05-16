@@ -10,16 +10,16 @@ import SwiftUI
 
 struct ResistanceView: View {
     
-    @StateObject var ResistnaceViewModel = ResistanceViewModel()
+    @StateObject var ResistnaceVM  = ResistanceViewModel()
     
     var body: some View {
         NavigationView(){
             VStack{
-                TopBarView(title:"Resistance")
+                TopBarView(title: Strings.ResistancePage.pageName)
                 Spacer()
                 
                 ScrollView{
-                    ResistanceGridView(splits: $ResistnaceViewModel.splits)
+                    ResistanceGridView(ResistnaceVM: ResistnaceVM )
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
             

@@ -10,16 +10,16 @@ import SwiftUI
 
 
 struct ResistanceGridView: View{
-    @Binding var splits: [Split]
+    @ObservedObject var ResistnaceVM : ResistanceViewModel
     
     var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View{
         LazyVGrid(columns: gridItems, spacing: 5){
-            ForEach(splits){ split in
+            ForEach(ResistnaceVM.splits){ split in
                 CellContentView(selectedSplit: split)
             }
-            AddCellView(splits: $splits)
+            AddCellView(ResistnaceVM: ResistnaceVM)
             
         }
     }
@@ -31,7 +31,8 @@ struct CellContentView: View{
     var body: some View{
         NavigationLink(destination:  EmptyView()){
             ZStack{
-                Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.red).border(.black, width: 5).cornerRadius(10)
+                Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.white).border(.black, width: 5).cornerRadius(10)
+                Text(selectedSplit.name).foregroundColor(.black)
             }
         }.padding(10)
     }
@@ -39,9 +40,12 @@ struct CellContentView: View{
 
 
 struct AddCellView: View{
-    @Binding var splits: [Split]
     @State private var isAdding = false
+    @State private var isError = false
     @State private var name = ""
+    @ObservedObject var ResistnaceVM : ResistanceViewModel
+    @State private var errorMessage = ""
+    
     
     var body: some View{
         
@@ -65,22 +69,28 @@ struct AddCellView: View{
                 }
             }.padding(10)
         }
-        .alert("New Split", isPresented: $isAdding) {
-            TextField("Name", text: $name)
+        .alert(Strings.Dialog.titleNewSplit, isPresented: $isAdding) {
+            TextField(Strings.Dialog.textFieldNewSplit, text: $name)
                 .textInputAutocapitalization(.never)
-            Button("OK"){
-                addSplit()
+            Button(Strings.Dialog.confirm){
+                errorMessage = ResistnaceVM.addSplit(name: name)
+                if (errorMessage != Strings.ResistancePage.isAddedSuccessfully)
+                {
+                    isError.toggle()
+                }
+                name = ""
             }
-            Button("Cancel", role: .cancel) { name = ""}
+            Button(Strings.Dialog.cancel, role: .cancel) { name = ""}
         }message: {
-            Text("Please enter the name of your split")
+            Text(Strings.Dialog.messageNewSplitEnterName)
+        }
+        .alert(Strings.Dialog.titleError, isPresented: $isError){
+            EmptyView()
+        }message: {
+            Text(errorMessage)
         }
         
     }
     
-    func addSplit() {
-        splits.append(Split(name: name))
-        name = ""
-    }
 }
 

@@ -48,20 +48,20 @@ class SignUpViewModel: ObservableObject{
     }
     
     //is usernamevalid
-    private var isUsernameValidPublisher: AnyPublisher<[String], Never> {
+    var isUsernameValidPublisher: AnyPublisher<[String], Never> {
         Publishers.CombineLatest(isUsernameLongEnoguhPublisher, isUsernameTooLongPublisher)
             .map { isUsernameLongEnoguh, isUsernameTooLong in
                 var usernameMessages = [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements)
                 if (!isUsernameLongEnoguh) {
                     usernameMessages[usernameMessages.firstIndex(where: { value in
                         value == " "
-                    })!] = "- Username must be 6 characters long"
+                    })!] = Strings.SignUpPage.isNotLongEnoughUsername
                 }
                 
                 if (!isUsernameTooLong) {
                     usernameMessages[usernameMessages.firstIndex(where: { value in
                         value == " "
-                    })!] = "- Username must be less then 10 characters"
+                    })!] = Strings.SignUpPage.isTooLongUsername
                 }
                 
                 return usernameMessages
@@ -100,26 +100,26 @@ class SignUpViewModel: ObservableObject{
     }
     
     //is password valid
-    private var isPasswordValidPublisher: AnyPublisher<[String], Never> {
+    var isPasswordValidPublisher: AnyPublisher<[String], Never> {
         Publishers.CombineLatest3(isPasswordLongEnoguhPublisher, isPasswordTooLongPublisher, isPasswordEqual)
             .map { isPasswordLongEnoguh, isPasswordTooLong, isPasswordEqual in
                 var passwordMessages = [String] (repeating: " ", count: C.SignUpPage.numPasswordRequirements)
                 if (!isPasswordLongEnoguh) {
                     passwordMessages[passwordMessages.firstIndex(where: { value in
                         value == " "
-                    })!] = "- Password must be 6 characters long"
+                    })!] = Strings.SignUpPage.isNotLongEnoughPassword
                 }
                 
                 if (!isPasswordTooLong) {
                     passwordMessages[passwordMessages.firstIndex(where: { value in
                         value == " "
-                    })!] = "- Password must be less then 10 characters"
+                    })!] = Strings.SignUpPage.isTooLongPassword
                 }
                 
                 if (!isPasswordEqual) {
                     passwordMessages[passwordMessages.firstIndex(where: { value in
                         value == " "
-                    })!] = "- Passwords must be equal"
+                    })!] = Strings.SignUpPage.isNotEqualPassword
                 }
                 
                 return passwordMessages
@@ -129,7 +129,7 @@ class SignUpViewModel: ObservableObject{
     
     
     //can log in
-    private var isAbleToSignUp: AnyPublisher<Bool, Never>{
+    var isAbleToSignUp: AnyPublisher<Bool, Never>{
         Publishers.CombineLatest(isUsernameValidPublisher, isPasswordValidPublisher)
             .map{ usernameMessages, passwordMessages in
                 if (usernameMessages == [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements) &&

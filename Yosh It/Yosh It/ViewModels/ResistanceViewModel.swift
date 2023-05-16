@@ -13,4 +13,22 @@ class ResistanceViewModel: ObservableObject{
     @Published var splits = [Split]()
     
     
+    
+    func addSplit(name: String) -> String {
+        
+        if (splits.contains(where: { split in
+            split.name == name
+        })){
+            return Strings.ResistancePage.isAlreadyError
+        }
+        
+        if (name == ""){
+            return Strings.ResistancePage.isEmptyError
+        }
+        
+        
+        splits.append(Split(name: name))
+        return Strings.ResistancePage.isAddedSuccessfully
+        
+    }
 }

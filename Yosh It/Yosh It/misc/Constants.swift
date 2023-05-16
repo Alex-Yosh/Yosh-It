@@ -11,7 +11,7 @@ struct C{
     
     struct SignUpPage {
         static let numUsernameRequirements = 2
-        static let numPasswordRequirements = 2
+        static let numPasswordRequirements = 3
         static let usernameRequiredLength = 6
         static let usernameMaxLength = 10
         static let passwordRequiredLength = 6
