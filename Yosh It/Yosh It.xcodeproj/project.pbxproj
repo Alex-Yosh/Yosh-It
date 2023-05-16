@@ -28,6 +28,14 @@
 		FA3A0E032A132A0E0013A620 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */; };
 		FA3A0E052A132A0E0013A620 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E042A132A0E0013A620 /* FirebaseAuth */; };
 		FA3A0E072A132A0F0013A620 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E062A132A0F0013A620 /* FirebaseFirestore */; };
+		FA3A0E0A2A1405410013A620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E092A1405410013A620 /* User.swift */; };
+		FA3A0E0B2A1405410013A620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E092A1405410013A620 /* User.swift */; };
+		FA3A0E0D2A1405540013A620 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E0C2A1405540013A620 /* Excercise.swift */; };
+		FA3A0E0E2A1405540013A620 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E0C2A1405540013A620 /* Excercise.swift */; };
+		FA3A0E102A1405650013A620 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E0F2A1405650013A620 /* Workout.swift */; };
+		FA3A0E112A1405650013A620 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E0F2A1405650013A620 /* Workout.swift */; };
+		FA3A0E132A1405810013A620 /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */; };
+		FA3A0E142A1405810013A620 /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -62,6 +70,10 @@
 		FA3A0DE82A12E6850013A620 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTests.swift; sourceTree = "<group>"; };
 		FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA3A0E092A1405410013A620 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA3A0E0C2A1405540013A620 /* Excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
+		FA3A0E0F2A1405650013A620 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModel.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -130,6 +142,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FA3A0E082A1405220013A620 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A0E092A1405410013A620 /* User.swift */,
+				FA1C3FBB2A0EB47200014CA2 /* Split.swift */,
+				FA3A0E0C2A1405540013A620 /* Excercise.swift */,
+				FA3A0E0F2A1405650013A620 /* Workout.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FAD0AFB72A0B202700657145 /* misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */,
-				FA1C3FBB2A0EB47200014CA2 /* Split.swift */,
+				FA3A0E082A1405220013A620 /* Models */,
 				FAF390A92A0AC602006E9C96 /* ViewModels */,
 				FAF390A82A0AC486006E9C96 /* Views */,
 				FAD0AFB72A0B202700657145 /* misc */,
@@ -201,6 +224,7 @@
 				FAF390AA2A0AC62F006E9C96 /* ResistanceViewModel.swift */,
 				FAF390B02A0ACA93006E9C96 /* SignUpViewModel.swift */,
 				FA1C3FB72A0DA8CE00014CA2 /* LoginViewModel.swift */,
+				FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -316,15 +340,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3A0DF42A12E69D0013A620 /* LoginViewModel.swift in Sources */,
+				FA3A0E0E2A1405540013A620 /* Excercise.swift in Sources */,
 				FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */,
+				FA3A0E112A1405650013A620 /* Workout.swift in Sources */,
 				FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */,
 				FA3A0DF62A12E6A20013A620 /* ResistanceViewModel.swift in Sources */,
+				FA3A0E142A1405810013A620 /* ExcerciseViewModel.swift in Sources */,
 				FA3A0DF32A12E68E0013A620 /* LoginViewModelTests.swift in Sources */,
 				FA3A0DF52A12E6A00013A620 /* SignUpViewModel.swift in Sources */,
 				FA3A0DF12A12E68E0013A620 /* SignUpViewModelTests.swift in Sources */,
 				FA3A0DF22A12E68E0013A620 /* ResistanceViewModelTests.swift in Sources */,
 				FA3A0DF72A12E6A60013A620 /* Strings.swift in Sources */,
 				FA3A0DF82A12E6A80013A620 /* Constants.swift in Sources */,
+				FA3A0E0B2A1405410013A620 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,15 +363,19 @@
 				FADD088A296B64D4001C7BD3 /* CustomColours.swift in Sources */,
 				FAF390AF2A0AC776006E9C96 /* SignUpView.swift in Sources */,
 				FADD0884296B611B001C7BD3 /* ResistanceView.swift in Sources */,
+				FA3A0E102A1405650013A620 /* Workout.swift in Sources */,
 				FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */,
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,
 				FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */,
+				FA3A0E0A2A1405410013A620 /* User.swift in Sources */,
 				FAF390AB2A0AC62F006E9C96 /* ResistanceViewModel.swift in Sources */,
+				FA3A0E132A1405810013A620 /* ExcerciseViewModel.swift in Sources */,
 				FA3A0D3A2A12BCC20013A620 /* Strings.swift in Sources */,
 				FA1C3FBA2A0EB38200014CA2 /* ResistanceGridView.swift in Sources */,
 				FAF390B12A0ACA93006E9C96 /* SignUpViewModel.swift in Sources */,
 				FA1C3FB82A0DA8CE00014CA2 /* LoginViewModel.swift in Sources */,
 				FA1C3FBC2A0EB47200014CA2 /* Split.swift in Sources */,
+				FA3A0E0D2A1405540013A620 /* Excercise.swift in Sources */,
 				FA1C3FB42A0D961C00014CA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

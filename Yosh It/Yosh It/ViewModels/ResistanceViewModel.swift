@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 
 class ResistanceViewModel: ObservableObject{
+    
+    private var user: User?
     
     @Published var splits = [Split]()
     
