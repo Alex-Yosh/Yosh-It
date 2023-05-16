@@ -13,7 +13,7 @@ class ResistanceViewModel: ObservableObject{
     @Published var splits = [Split]()
     
     
-    
+    //if error, does not append. returns status as a string
     func addSplit(name: String) -> String {
         
         if (splits.contains(where: { split in

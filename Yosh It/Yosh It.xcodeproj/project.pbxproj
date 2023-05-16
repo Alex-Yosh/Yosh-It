@@ -23,6 +23,11 @@
 		FA3A0DF82A12E6A80013A620 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FB32A0D961C00014CA2 /* Constants.swift */; };
 		FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C3FBB2A0EB47200014CA2 /* Split.swift */; };
 		FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */; };
+		FA3A0DFF2A1324980013A620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */; };
+		FA3A0E002A1324980013A620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */; };
+		FA3A0E032A132A0E0013A620 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */; };
+		FA3A0E052A132A0E0013A620 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E042A132A0E0013A620 /* FirebaseAuth */; };
+		FA3A0E072A132A0F0013A620 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E062A132A0F0013A620 /* FirebaseFirestore */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -56,6 +61,7 @@
 		FA3A0DCB2A12E3590013A620 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		FA3A0DE82A12E6850013A620 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTests.swift; sourceTree = "<group>"; };
+		FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3A0E032A132A0E0013A620 /* FirebaseAnalytics in Frameworks */,
+				FA3A0E052A132A0E0013A620 /* FirebaseAuth in Frameworks */,
+				FA3A0E072A132A0F0013A620 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +137,7 @@
 				FA1C3FB32A0D961C00014CA2 /* Constants.swift */,
 				FA3A0D392A12BCC20013A620 /* Strings.swift */,
 				FADD0879296B5E79001C7BD3 /* Assets.xcassets */,
+				FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */,
 			);
 			path = misc;
 			sourceTree = "<group>";
@@ -229,6 +239,11 @@
 			dependencies = (
 			);
 			name = "Yosh It";
+			packageProductDependencies = (
+				FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */,
+				FA3A0E042A132A0E0013A620 /* FirebaseAuth */,
+				FA3A0E062A132A0F0013A620 /* FirebaseFirestore */,
+			);
 			productName = "Yosh It";
 			productReference = FADD0872296B5E77001C7BD3 /* Yosh It.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +276,9 @@
 				Base,
 			);
 			mainGroup = FADD0869296B5E77001C7BD3;
+			packageReferences = (
+				FA3A0E012A132A0E0013A620 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FADD0873296B5E77001C7BD3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3A0E002A1324980013A620 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +304,7 @@
 			files = (
 				FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */,
 				FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */,
+				FA3A0DFF2A1324980013A620 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,12 +525,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Yosh It/Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,12 +553,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Yosh It/Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,6 +600,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA3A0E012A132A0E0013A620 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3A0E012A132A0E0013A620 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FA3A0E042A132A0E0013A620 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3A0E012A132A0E0013A620 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FA3A0E062A132A0F0013A620 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3A0E012A132A0E0013A620 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FADD086A296B5E77001C7BD3 /* Project object */;
 }
