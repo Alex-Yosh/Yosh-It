@@ -11,15 +11,21 @@ import Combine
 
 class ResistanceViewModel: ObservableObject{
     
-    private var user: User?
+    @Published var user: User
     
-    @Published var splits = [Split]()
+    init(){
+        user = User(Username: "test", Password: "test")
+        
+    }
+    
+    
+    
     
     
     //if error, does not append. returns status as a string
     func addSplit(name: String) -> String {
         
-        if (splits.contains(where: { split in
+        if (user.splits.contains(where: { split in
             split.name == name
         })){
             return Strings.ResistancePage.isAlreadyError
@@ -30,7 +36,7 @@ class ResistanceViewModel: ObservableObject{
         }
         
         
-        splits.append(Split(name: name))
+        user.splits.append(Split(name: name))
         return Strings.ResistancePage.isAddedSuccessfully
         
     }

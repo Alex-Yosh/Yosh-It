@@ -8,7 +8,10 @@
 import Foundation
 
 struct Workout{
-    private var date: String
-    private var sets: [Int]
+    private var date: String?
+    private var sets: [Int]?
     
+    init(){
+        
+    }
 }

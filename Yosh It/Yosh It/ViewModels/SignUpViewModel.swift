@@ -129,7 +129,7 @@ class SignUpViewModel: ObservableObject{
     
     
     //can log in
-    var isAbleToSignUp: AnyPublisher<Bool, Never>{
+    private var isAbleToSignUp: AnyPublisher<Bool, Never>{
         Publishers.CombineLatest(isUsernameValidPublisher, isPasswordValidPublisher)
             .map{ usernameMessages, passwordMessages in
                 if (usernameMessages == [String] (repeating: " ", count: C.SignUpPage.numUsernameRequirements) &&

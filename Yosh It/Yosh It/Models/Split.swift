@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 
-struct Split: Identifiable, Equatable{
+struct Split: Identifiable{
     var id = UUID()
     var name: String
+    var excercises: [Excercise]
+    
     
     init(name: String) {
         self.name = name
+        excercises = []
     }
+    
+    
 }

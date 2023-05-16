@@ -16,7 +16,7 @@ struct ResistanceGridView: View{
     
     var body: some View{
         LazyVGrid(columns: gridItems, spacing: 5){
-            ForEach(ResistnaceVM.splits){ split in
+            ForEach(ResistnaceVM.user.splits){ split in
                 CellContentView(selectedSplit: split)
             }
             AddCellView(ResistnaceVM: ResistnaceVM)
@@ -29,7 +29,7 @@ struct CellContentView: View{
     var selectedSplit: Split
     
     var body: some View{
-        NavigationLink(destination:  EmptyView()){
+        NavigationLink(destination:  ExcerciseView()){
             ZStack{
                 Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.white).border(.black, width: 5).cornerRadius(10)
                 Text(selectedSplit.name).foregroundColor(.black)
