@@ -10,7 +10,7 @@ import Combine
 
 
 struct Split: Identifiable{
-    var id = UUID()
+    internal var id = UUID()
     var name: String
     var excercises: [Excercise]
     

@@ -38,6 +38,8 @@
 		FA3A0E142A1405810013A620 /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */; };
 		FA3A0E162A140B100013A620 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E152A140B100013A620 /* ExcerciseView.swift */; };
 		FA3A0E172A140B100013A620 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E152A140B100013A620 /* ExcerciseView.swift */; };
+		FA3A0E192A1525CE0013A620 /* ExcerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */; };
+		FA3A0E1A2A1525CE0013A620 /* ExcerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -77,6 +79,7 @@
 		FA3A0E0F2A1405650013A620 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModel.swift; sourceTree = "<group>"; };
 		FA3A0E152A140B100013A620 /* ExcerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseView.swift; sourceTree = "<group>"; };
+		FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseListView.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 				FAF390AE2A0AC776006E9C96 /* SignUpView.swift */,
 				FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */,
 				FA3A0E152A140B100013A620 /* ExcerciseView.swift */,
+				FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +351,7 @@
 				FA3A0E0E2A1405540013A620 /* Excercise.swift in Sources */,
 				FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */,
 				FA3A0E112A1405650013A620 /* Workout.swift in Sources */,
+				FA3A0E1A2A1525CE0013A620 /* ExcerciseListView.swift in Sources */,
 				FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */,
 				FA3A0E172A140B100013A620 /* ExcerciseView.swift in Sources */,
 				FA3A0DF62A12E6A20013A620 /* ResistanceViewModel.swift in Sources */,
@@ -368,6 +373,7 @@
 				FADD088A296B64D4001C7BD3 /* CustomColours.swift in Sources */,
 				FAF390AF2A0AC776006E9C96 /* SignUpView.swift in Sources */,
 				FADD0884296B611B001C7BD3 /* ResistanceView.swift in Sources */,
+				FA3A0E192A1525CE0013A620 /* ExcerciseListView.swift in Sources */,
 				FA3A0E102A1405650013A620 /* Workout.swift in Sources */,
 				FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */,
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,

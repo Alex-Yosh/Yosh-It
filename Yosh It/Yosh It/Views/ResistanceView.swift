@@ -14,11 +14,10 @@ struct ResistanceView: View {
     
     var body: some View {
         NavigationView(){
-            VStack{
+            VStack(spacing: 0){
                 TopBarView(title: Strings.ResistancePage.pageName)
-                Spacer()
                 
-                ScrollView{
+                ScrollView(){
                     ResistanceGridView(ResistnaceVM: ResistnaceVM )
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)

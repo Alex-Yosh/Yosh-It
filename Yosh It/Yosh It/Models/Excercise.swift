@@ -7,13 +7,19 @@
 
 import Foundation
 
-struct Excercise{
-    private var namme: String
-    private var lastDate: String
+struct Excercise: Identifiable{
+    internal var id = UUID()
+    var name: String
+    private var lastDate: String?
     private var splits: [Workout]
-    private var prOne: Double
-    private var prThree: Double
-    private var prSix: Double
+    private var prOne: Double?
+    private var prThree: Double?
+    private var prSix: Double?
     
+    
+    init(Name: String){
+        name = Name
+        splits = [Workout]()
+    }
     
 }

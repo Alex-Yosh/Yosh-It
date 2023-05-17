@@ -10,12 +10,21 @@ import Combine
 
 class ExcerciseViewModel: ObservableObject{
     
-    @Published var split: Split?
+    @Published var split: Split
     
 //    private var lastSplitPublisher: AnyPublisher<Split, Never>{
 //
 //    }
     
+    init(Split: Split){
+        split = Split
+    }
+    
+    
+    //adds excercise to split
+    func addExcercsise(excercise:Excercise){
+        split.excercises.append(excercise)
+    }
     
     //gets previous split given excercise
     func getLastWorkOut(excercise:Excercise) -> Workout{
