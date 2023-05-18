@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct C{
     
@@ -20,6 +21,10 @@ struct C{
     
     struct ExcercisePopup{
         static let numberOfRows = 8
+        
+        enum RowState{
+            case clear, correct, incorrect
+        }
     }
     
 }

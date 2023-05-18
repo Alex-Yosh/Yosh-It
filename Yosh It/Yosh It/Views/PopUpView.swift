@@ -39,6 +39,7 @@ struct PopUpView: View{
                     .cornerRadius(25)
                     
                     Button(action: {
+                        excerciseVM.completeWorkout()
                         isShowing.toggle()
                     }, label: {
                         Text(Strings.Dialog.confirm)
@@ -49,7 +50,7 @@ struct PopUpView: View{
                             .overlay(
                                 RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.black, lineWidth: 2))
-                    })
+                    }).disabled(!excerciseVM.isValid)
                     .cornerRadius(25)
                 }
             }.padding(40)
@@ -78,16 +79,20 @@ struct WorkOutSetView: View{
                 .limitInputLength(value: $excerciseVM.sets[setNumber], length: 1)
                 .multilineTextAlignment(.center)
             Text("x")
+            
             TextField("reps", text: $excerciseVM.reps[setNumber])
                 .keyboardType(.numberPad)
                 .intergerOnly(value: $excerciseVM.reps[setNumber])
                 .limitInputLength(value: $excerciseVM.reps[setNumber], length: 2)
                 .multilineTextAlignment(.center)
+            
             TextField("weight", text: $excerciseVM.weight[setNumber])
                 .keyboardType(.numberPad)
                 .doubleOnly(value: $excerciseVM.weight[setNumber])
-                .limitInputLength(value: $excerciseVM.weight[setNumber], length: 4)
-        }
+                .limitInputLength(value: $excerciseVM.weight[setNumber], length: 5)
+                .multilineTextAlignment(.center)
+            
+        }.background(excerciseVM.rowColor[setNumber])
     }
 }
 
