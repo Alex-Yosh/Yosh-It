@@ -11,4 +11,5 @@ import SwiftUI
 struct CustomColours {
     static let MainIndigo = Color("MainIndigo")
     static let Background = Color("Background")
+    static let FaintIndigo = Color("FaintIndigo")
 }

@@ -29,6 +29,13 @@ struct Strings{
         
     }
     
+    struct ExcercisePage{
+        static let isAddedSuccessfully = "Added Succesfully"
+        static let isEmptyError = "Name was left empty"
+        static let isAlreadyError = "Name is already used"
+        
+    }
+    
     struct SignUpPage {
         static let isNotLongEnoughPassword = "- Password must be \(C.SignUpPage.passwordRequiredLength) characters long"
         static let isTooLongPassword = "- Password must be less then \(C.SignUpPage.passwordMaxLength) characters"

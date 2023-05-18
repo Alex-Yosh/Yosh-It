@@ -22,8 +22,22 @@ class ExcerciseViewModel: ObservableObject{
     
     
     //adds excercise to split
-    func addExcercsise(excercise:Excercise){
-        split.excercises.append(excercise)
+    //if error, does not append. returns status as a string
+    func addExcercsise(name:String) -> String{
+        
+        if (split.excercises.contains(where: { excercise in
+            excercise.name == name
+        })){
+            return Strings.ExcercisePage.isAlreadyError
+        }
+        
+        if (name == ""){
+            return Strings.ExcercisePage.isEmptyError
+        }
+        
+        
+        split.excercises.append(Excercise(Name: name))
+        return Strings.ExcercisePage.isAddedSuccessfully
     }
     
     //gets previous split given excercise
