@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ResistanceView: View {
     
+    @StateObject var user = User.userObj
     @StateObject var ResistnaceVM  = ResistanceViewModel()
     
     var body: some View {
@@ -22,8 +23,9 @@ struct ResistanceView: View {
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
             
-            
-        }
+        }.onAppear(perform: {
+            ResistnaceVM.user = user
+        }).environmentObject(user)
     }
 }
 

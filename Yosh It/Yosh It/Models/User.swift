@@ -9,19 +9,29 @@ import Foundation
 import Combine
 
 
-struct User{
-    var splits: [Split]
-    var lastSplit: Split
-    private var username: String
-    private var password: String
-
+class User: ObservableObject{
+    //singleton
+    static let userObj = User()
     
-    init(Username: String, Password: String){
-        username = Username
-        password = Password
-        lastSplit = Split(name: "")
-        splits = []
+    // create a private initializer
+    private init() {
+            lastSplit = Split(name: "")
+            splits = []
     }
     
+    @Published var splits: [Split]
+    var lastSplit: Split
+    private var username: String?
+    private var password: String?
+
+    
+    func getSplitIndex(name: String) -> Int{
+        for i in (0..<splits.count){
+            if (splits[i].name == name){
+                return i
+            }
+        }
+        return -1
+    }
     
 }

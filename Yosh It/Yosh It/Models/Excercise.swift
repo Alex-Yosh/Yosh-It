@@ -11,7 +11,7 @@ struct Excercise: Identifiable{
     internal var id = UUID()
     var name: String
     private var lastDate: String?
-    private var workouts: [Workout]
+    var workouts: [Workout]
     private var prOne: Double?
     private var prThree: Double?
     private var prSix: Double?

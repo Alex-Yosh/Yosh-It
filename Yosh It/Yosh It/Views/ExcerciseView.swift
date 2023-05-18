@@ -10,21 +10,22 @@ import SwiftUI
 
 struct ExcerciseView: View {
     
-    @ObservedObject var excerciseVM: ExcerciseViewModel
+    @EnvironmentObject var user: User
+    var SplitName: String
+    @StateObject var excerciseVM = ExcerciseViewModel()
     @State private var isAdding = false
     @State private var isError = false
     @State private var name = ""
     @State private var errorMessage = ""
-    @State private var isAddingWorkout = false
     
     
     var body: some View {
         ZStack{
             VStack(spacing:0){
-                TopBarView(title: excerciseVM.split.name)
+                TopBarView(title: SplitName)
                 
                 ZStack{
-                    ExcerciseListView(excerciseVM: excerciseVM, isAddingWorkout: $isAddingWorkout)
+                    ExcerciseListView(SplitName: SplitName, excerciseVM: excerciseVM)
                     
                     VStack{
                         Spacer()
@@ -45,7 +46,7 @@ struct ExcerciseView: View {
                                 TextField(Strings.Dialog.textFieldNewSplit, text: $name)
                                     .textInputAutocapitalization(.never)
                                 Button(Strings.Dialog.confirm){
-                                    errorMessage = excerciseVM.addExcercsise(name: name)
+                                    errorMessage = excerciseVM.addExcercsise(name: name, SplitName: SplitName)
                                     if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
                                     {
                                         isError.toggle()
@@ -66,10 +67,10 @@ struct ExcerciseView: View {
                 }
             }.edgesIgnoringSafeArea(.bottom)
             
-            if(isAddingWorkout){
+            if(excerciseVM.isAddingWorkout){
                 GeometryReader { _ in
                     
-                    PopUpView(isShowing: $isAddingWorkout, excerciseVM: excerciseVM)
+                    PopUpView(excerciseVM: excerciseVM)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(.horizontal, 35)
                 }
@@ -78,13 +79,15 @@ struct ExcerciseView: View {
                         .edgesIgnoringSafeArea(.all)
                 )
             }
-        }
+        }.onAppear(perform: {
+            excerciseVM.user = user
+        })
     }
 }
 
 
 struct ExcerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExcerciseView(excerciseVM: ExcerciseViewModel(Split: Split(name: "test")))
+        ExcerciseView(SplitName: "test")
     }
 }

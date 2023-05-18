@@ -37,13 +37,12 @@
 		FA3A0E132A1405810013A620 /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */; };
 		FA3A0E142A1405810013A620 /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E122A1405810013A620 /* ExcerciseViewModel.swift */; };
 		FA3A0E162A140B100013A620 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E152A140B100013A620 /* ExcerciseView.swift */; };
-		FA3A0E172A140B100013A620 /* ExcerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E152A140B100013A620 /* ExcerciseView.swift */; };
 		FA3A0E192A1525CE0013A620 /* ExcerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */; };
-		FA3A0E1A2A1525CE0013A620 /* ExcerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */; };
 		FA3A0E1C2A157E730013A620 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1B2A157E730013A620 /* PopUpView.swift */; };
-		FA3A0E1D2A157E730013A620 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1B2A157E730013A620 /* PopUpView.swift */; };
 		FA3A0E1F2A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */; };
 		FA3A0E202A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */; };
+		FA3A0E252A16BF330013A620 /* ExcerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E242A16BF330013A620 /* ExcerciseViewModelTests.swift */; };
+		FA3A0E262A16C4BD0013A620 /* CustomColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0889296B64D4001C7BD3 /* CustomColours.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -86,6 +85,7 @@
 		FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseListView.swift; sourceTree = "<group>"; };
 		FA3A0E1B2A157E730013A620 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomModifiers.swift; sourceTree = "<group>"; };
+		FA3A0E242A16BF330013A620 /* ExcerciseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModelTests.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -120,13 +120,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA3A0DC22A12E2C40013A620 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
 		FA3A0DE92A12E6850013A620 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +135,7 @@
 				FA3A0DA52A12E0660013A620 /* ResistanceViewModelTests.swift */,
 				FA3A0DB32A12E0C00013A620 /* SignUpViewModelTests.swift */,
 				FA3A0DCB2A12E3590013A620 /* LoginViewModelTests.swift */,
+				FA3A0E242A16BF330013A620 /* ExcerciseViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -182,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				FADD0874296B5E77001C7BD3 /* Yosh It */,
-				FA3A0DC22A12E2C40013A620 /* Tests */,
 				FA3A0DE92A12E6850013A620 /* UnitTests */,
 				FADD0873296B5E77001C7BD3 /* Products */,
 			);
@@ -356,13 +349,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3A0DF42A12E69D0013A620 /* LoginViewModel.swift in Sources */,
-				FA3A0E1D2A157E730013A620 /* PopUpView.swift in Sources */,
+				FA3A0E252A16BF330013A620 /* ExcerciseViewModelTests.swift in Sources */,
 				FA3A0E0E2A1405540013A620 /* Excercise.swift in Sources */,
+				FA3A0E262A16C4BD0013A620 /* CustomColours.swift in Sources */,
 				FA3A0DF92A12E6AC0013A620 /* Split.swift in Sources */,
 				FA3A0E112A1405650013A620 /* Workout.swift in Sources */,
-				FA3A0E1A2A1525CE0013A620 /* ExcerciseListView.swift in Sources */,
 				FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */,
-				FA3A0E172A140B100013A620 /* ExcerciseView.swift in Sources */,
 				FA3A0DF62A12E6A20013A620 /* ResistanceViewModel.swift in Sources */,
 				FA3A0E142A1405810013A620 /* ExcerciseViewModel.swift in Sources */,
 				FA3A0DF32A12E68E0013A620 /* LoginViewModelTests.swift in Sources */,

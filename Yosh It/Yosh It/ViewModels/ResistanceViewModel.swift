@@ -11,13 +11,11 @@ import Combine
 
 class ResistanceViewModel: ObservableObject{
     
-    @Published var user: User
+    
+    @Published var user: User!
     
     init(){
-        user = User(Username: "test", Password: "test")
-        
     }
-    
     
     
     

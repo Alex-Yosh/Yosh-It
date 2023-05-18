@@ -11,12 +11,13 @@ import SwiftUI
 
 struct ResistanceGridView: View{
     @ObservedObject var ResistnaceVM : ResistanceViewModel
+    @EnvironmentObject var user: User
     
     var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View{
         LazyVGrid(columns: gridItems, spacing: 5){
-            ForEach(ResistnaceVM.user.splits){ split in
+            ForEach(user.splits){ split in
                 CellContentView(selectedSplit: split)
             }
             AddCellView(ResistnaceVM: ResistnaceVM)
@@ -35,7 +36,7 @@ struct CellContentView: View{
     var selectedSplit: Split
     
     var body: some View{
-        NavigationLink(destination:  ExcerciseView(excerciseVM: ExcerciseViewModel(Split: selectedSplit))){
+        NavigationLink(destination:  ExcerciseView(SplitName: selectedSplit.name)){
             ZStack{
                 Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.white).border(.black, width: 5).cornerRadius(10)
                 Text(selectedSplit.name).foregroundColor(.black)

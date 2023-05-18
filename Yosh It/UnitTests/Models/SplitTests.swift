@@ -12,7 +12,7 @@ final class SplitTests: XCTestCase {
     private var sut: Split!
     
     override func setUpWithError() throws {
-        sut = Split()
+        sut = Split(name: "")
     }
     
     override func tearDownWithError() throws {

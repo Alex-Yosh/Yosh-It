@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 struct PopUpView: View{
-    @Binding var isShowing: Bool
     @ObservedObject var excerciseVM: ExcerciseViewModel
     
     var body: some View{
@@ -25,7 +24,8 @@ struct PopUpView: View{
                 Spacer()
                 HStack{
                     Button(action: {
-                        isShowing.toggle()
+                        excerciseVM.wipeWorkout()
+                        excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.cancel)
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -40,7 +40,7 @@ struct PopUpView: View{
                     
                     Button(action: {
                         excerciseVM.completeWorkout()
-                        isShowing.toggle()
+                        excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.confirm)
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -60,7 +60,7 @@ struct PopUpView: View{
 
 struct PopUpView_Previews: PreviewProvider {
   static var previews: some View {
-      PopUpView(isShowing: .constant(true), excerciseVM: ExcerciseViewModel(Split: Split(name: "test")))
+      PopUpView(excerciseVM: ExcerciseViewModel())
   }
 }
 

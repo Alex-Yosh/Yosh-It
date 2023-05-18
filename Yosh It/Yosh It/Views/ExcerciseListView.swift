@@ -11,17 +11,17 @@ import SwiftUI
 
 struct ExcerciseListView: View{
     
+    var SplitName: String
     @ObservedObject var excerciseVM: ExcerciseViewModel
-    @Binding var isAddingWorkout: Bool
-    @State var test = ""
+    @EnvironmentObject var user: User
     
     var body: some View{
         ZStack{
             
             List(){
-                ForEach(excerciseVM.split.excercises){excercise in
+                ForEach(user.splits[user.getSplitIndex(name: SplitName)].excercises){excercise in
                     Button(action: {
-                        isAddingWorkout.toggle()
+                        excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Listitem(item: excercise)
                     })

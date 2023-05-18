@@ -11,7 +11,10 @@ import SwiftUI
 
 class ExcerciseViewModel: ObservableObject{
     
-    @Published var split: Split
+    
+    @Published var user: User!
+    
+    @Published var isAddingWorkout = false
     
     
     @Published var weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
@@ -55,9 +58,8 @@ class ExcerciseViewModel: ObservableObject{
               .eraseToAnyPublisher()
     }
     
-    
-    init(Split: Split){
-        split = Split
+        
+    init(){
         
         isWorkoutCompleteable
             .receive(on: RunLoop.main)
@@ -77,9 +79,10 @@ class ExcerciseViewModel: ObservableObject{
     
     //adds excercise to split
     //if error, does not append. returns status as a string
-    func addExcercsise(name:String) -> String{
+    func addExcercsise(name:String, SplitName: String) -> String{
+        let index = user.getSplitIndex(name: SplitName)
         
-        if (split.excercises.contains(where: { excercise in
+        if (user.splits[index].excercises.contains(where: { excercise in
             excercise.name == name
         })){
             return Strings.ExcercisePage.isAlreadyError
@@ -90,17 +93,18 @@ class ExcerciseViewModel: ObservableObject{
         }
         
         
-        split.excercises.append(Excercise(Name: name))
+        user.splits[index].excercises.append(Excercise(Name: name))
         return Strings.ExcercisePage.isAddedSuccessfully
     }
     
-    //gets previous split given excercise
-    func getLastWorkOut(excercise:Excercise) -> Workout{
-        return Workout()
-    }
     
     //completes workout by injecting workouts into excercises
     func completeWorkout(){
+        
+    }
+    
+    //deletes alll data about sets, reps, weight
+    func wipeWorkout(){
         
     }
 }

@@ -25,7 +25,7 @@ final class ResistanceViewModelTests: XCTestCase {
         let expected = Strings.ResistancePage.isAlreadyError
         
         XCTAssertEqual(actual, expected)
-        XCTAssertEqual(sut.splits.count, 1)
+        XCTAssertEqual(sut.user.splits.count, 1)
     }
     
     func test_addSplit_isEmptyError(){
@@ -33,7 +33,7 @@ final class ResistanceViewModelTests: XCTestCase {
         let expected = Strings.ResistancePage.isEmptyError
         
         XCTAssertEqual(actual, expected)
-        XCTAssertEqual(sut.splits.count, 0)
+        XCTAssertEqual(sut.user.splits.count, 0)
     }
     
     func test_addSplit_isSuccessful(){
@@ -41,7 +41,7 @@ final class ResistanceViewModelTests: XCTestCase {
         let expected = Strings.ResistancePage.isAddedSuccessfully
         
         XCTAssertEqual(actual, expected)
-        XCTAssertEqual(sut.splits.count, 1)
+        XCTAssertEqual(sut.user.splits.count, 1)
     }
 
 }
