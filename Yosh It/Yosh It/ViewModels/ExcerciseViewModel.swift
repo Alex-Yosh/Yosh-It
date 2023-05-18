@@ -12,6 +12,13 @@ class ExcerciseViewModel: ObservableObject{
     
     @Published var split: Split
     
+    
+    @Published var weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+    @Published var sets = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+    @Published var reps = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+
+    
+    
 //    private var lastSplitPublisher: AnyPublisher<Split, Never>{
 //
 //    }

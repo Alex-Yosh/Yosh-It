@@ -42,6 +42,8 @@
 		FA3A0E1A2A1525CE0013A620 /* ExcerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */; };
 		FA3A0E1C2A157E730013A620 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1B2A157E730013A620 /* PopUpView.swift */; };
 		FA3A0E1D2A157E730013A620 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1B2A157E730013A620 /* PopUpView.swift */; };
+		FA3A0E1F2A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */; };
+		FA3A0E202A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -83,6 +85,7 @@
 		FA3A0E152A140B100013A620 /* ExcerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseView.swift; sourceTree = "<group>"; };
 		FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseListView.swift; sourceTree = "<group>"; };
 		FA3A0E1B2A157E730013A620 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomModifiers.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 				FADD0889296B64D4001C7BD3 /* CustomColours.swift */,
 				FA1C3FB32A0D961C00014CA2 /* Constants.swift */,
 				FA3A0D392A12BCC20013A620 /* Strings.swift */,
+				FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */,
 				FADD0879296B5E79001C7BD3 /* Assets.xcassets */,
 				FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */,
 			);
@@ -364,6 +368,7 @@
 				FA3A0DF32A12E68E0013A620 /* LoginViewModelTests.swift in Sources */,
 				FA3A0DF52A12E6A00013A620 /* SignUpViewModel.swift in Sources */,
 				FA3A0DF12A12E68E0013A620 /* SignUpViewModelTests.swift in Sources */,
+				FA3A0E202A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */,
 				FA3A0DF22A12E68E0013A620 /* ResistanceViewModelTests.swift in Sources */,
 				FA3A0DF72A12E6A60013A620 /* Strings.swift in Sources */,
 				FA3A0DF82A12E6A80013A620 /* Constants.swift in Sources */,
@@ -376,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADD088A296B64D4001C7BD3 /* CustomColours.swift in Sources */,
+				FA3A0E1F2A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */,
 				FAF390AF2A0AC776006E9C96 /* SignUpView.swift in Sources */,
 				FADD0884296B611B001C7BD3 /* ResistanceView.swift in Sources */,
 				FA3A0E192A1525CE0013A620 /* ExcerciseListView.swift in Sources */,

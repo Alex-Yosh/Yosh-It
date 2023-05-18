@@ -25,6 +25,12 @@ struct ResistanceGridView: View{
     }
 }
 
+struct ResistanceGridView_Previews: PreviewProvider {
+  static var previews: some View {
+      ResistanceGridView(ResistnaceVM: ResistanceViewModel())
+  }
+}
+
 struct CellContentView: View{
     var selectedSplit: Split
     

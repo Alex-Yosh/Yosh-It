@@ -7,13 +7,11 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct PopUpView: View{
     @Binding var isShowing: Bool
     @ObservedObject var excerciseVM: ExcerciseViewModel
-    @State var weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
-    @State var sets = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
-    @State var reps = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
     
     var body: some View{
         ZStack{
@@ -22,7 +20,7 @@ struct PopUpView: View{
             VStack(){
                 Spacer()
                 ForEach(0..<C.ExcercisePopup.numberOfRows){ i in
-                    WorkOutSetView(weight: $weight[i], sets: $sets[i], reps: $reps[i])
+                    WorkOutSetView(excerciseVM: excerciseVM, setNumber: i)
                 }
                 Spacer()
                 HStack{
@@ -59,23 +57,39 @@ struct PopUpView: View{
     }
 }
 
+struct PopUpView_Previews: PreviewProvider {
+  static var previews: some View {
+      PopUpView(isShowing: .constant(true), excerciseVM: ExcerciseViewModel(Split: Split(name: "test")))
+  }
+}
+
+
+
 struct WorkOutSetView: View{
     
-    @Binding var weight: String
-    @Binding var sets: String
-    @Binding var reps: String
+    @ObservedObject var excerciseVM: ExcerciseViewModel
+    var setNumber: Int
     
     var body: some View{
         HStack{
-            TextField("sets", text: $sets)
+            TextField("sets", text: $excerciseVM.sets[setNumber])
                 .keyboardType(.numberPad)
+                .intergerOnly(value: $excerciseVM.sets[setNumber])
+                .limitInputLength(value: $excerciseVM.sets[setNumber], length: 1)
+                .multilineTextAlignment(.center)
             Text("x")
-            TextField("reps", text: $reps)
+            TextField("reps", text: $excerciseVM.reps[setNumber])
                 .keyboardType(.numberPad)
-            TextField("weight", text: $weight)
+                .intergerOnly(value: $excerciseVM.reps[setNumber])
+                .limitInputLength(value: $excerciseVM.reps[setNumber], length: 2)
+                .multilineTextAlignment(.center)
+            TextField("weight", text: $excerciseVM.weight[setNumber])
                 .keyboardType(.numberPad)
+                .doubleOnly(value: $excerciseVM.weight[setNumber])
+                .limitInputLength(value: $excerciseVM.weight[setNumber], length: 4)
         }
     }
 }
+
 
 
