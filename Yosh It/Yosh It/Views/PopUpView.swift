@@ -25,6 +25,7 @@ struct PopUpView: View{
                 HStack{
                     Button(action: {
                         excerciseVM.wipeWorkout()
+                        excerciseVM.excercisename = nil
                         excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.cancel)
@@ -39,7 +40,7 @@ struct PopUpView: View{
                     .cornerRadius(25)
                     
                     Button(action: {
-                        excerciseVM.completeWorkout()
+                        excerciseVM.completeWorkout(SplitName: excerciseVM.splitname, ExcerciseName: excerciseVM.excercisename)
                         excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.confirm)

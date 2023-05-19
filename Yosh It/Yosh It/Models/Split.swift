@@ -15,10 +15,19 @@ struct Split: Identifiable{
     var excercises: [Excercise]
     
     
+    
     init(name: String) {
         self.name = name
         excercises = []
     }
     
+    func getExcerciseIndex(name: String) -> Int{
+        for i in (0..<excercises.count){
+            if (excercises[i].name == name){
+                return i
+            }
+        }
+        return -1
+    }
     
 }

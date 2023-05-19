@@ -9,13 +9,16 @@ import XCTest
 
 final class ResistanceViewModelTests: XCTestCase {
     private var sut: ResistanceViewModel!
+    let user = User.userObj
 
     override func setUpWithError() throws {
         sut = ResistanceViewModel()
+        sut.user = user
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        user.splits = []
     }
 
     

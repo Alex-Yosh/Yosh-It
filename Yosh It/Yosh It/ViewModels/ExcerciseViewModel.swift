@@ -13,6 +13,8 @@ class ExcerciseViewModel: ObservableObject{
     
     
     @Published var user: User!
+    var splitname: String!
+    var excercisename: String!
     
     @Published var isAddingWorkout = false
     
@@ -97,14 +99,39 @@ class ExcerciseViewModel: ObservableObject{
         return Strings.ExcercisePage.isAddedSuccessfully
     }
     
-    
+    //TODO: make arrays into Key-value, possibly more efficent?
     //completes workout by injecting workouts into excercises
-    func completeWorkout(){
+    func completeWorkout(SplitName: String, ExcerciseName: String){
+        let indexSplit = user.getSplitIndex(name: SplitName)
+        let indexExcercise = user.splits[indexSplit].getExcerciseIndex(name: ExcerciseName)
+        
+        let temp = Workout(Weight: weight.map({i in
+            if (i != ""){
+                return Double(i)!
+            }
+            return 0.0
+        }), Sets: sets.map({i in
+            if (i != ""){
+                return Int(i)!
+            }
+            return 0
+        }), Reps: reps.map({i in
+            if (i != ""){
+                return Int(i)!
+            }
+            return 0
+        }))
+        
+        user.splits[indexSplit].excercises[indexExcercise].workouts.append(temp)
+        
         
     }
     
     //deletes alll data about sets, reps, weight
     func wipeWorkout(){
         
+        weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+        sets = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+        reps = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
     }
 }

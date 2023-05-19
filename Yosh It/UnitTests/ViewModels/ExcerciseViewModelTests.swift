@@ -8,6 +8,7 @@
 import XCTest
 
 final class ExcerciseViewModelTests: XCTestCase {
+    let user = User.userObj
     
     private var testWeight = ["31.5", "60", "40.3", "", "", "", "", ""]
     private var testSets = ["2", "1", "3", "", "", "", "", ""]
@@ -21,11 +22,14 @@ final class ExcerciseViewModelTests: XCTestCase {
     private var sut: ExcerciseViewModel!
     
     override func setUpWithError() throws {
-        sut = ExcerciseViewModel(Split: Split(name: "Test"))
+        sut = ExcerciseViewModel()
+        sut.user = user
+        sut.user.splits.append(Split(name: "TestSplit"))
     }
     
     override func tearDownWithError() throws {
         sut = nil
+        user.splits = []
     }
     
     
@@ -34,12 +38,14 @@ final class ExcerciseViewModelTests: XCTestCase {
         sut.sets = testSets
         sut.reps = testReps
         
-        sut.split.excercises.append(Excercise(Name: "test"))
-        XCTAssertNil(sut.split.excercises[0].workouts.last)
+        let splitIndex = user.getSplitIndex(name: "TestSplit")
         
-        sut.completeWorkout()
+        sut.user.splits[splitIndex].excercises.append(Excercise(Name: "TestExcercise"))
+        XCTAssertNil(sut.user.splits[splitIndex].excercises[0].workouts.last)
         
-        XCTAssertNotNil(sut.split.excercises[0].workouts.last)
+        sut.completeWorkout(SplitName: "TestSplit", ExcerciseName: "TestExcercise")
+        
+        XCTAssertNotNil(sut.user.splits[splitIndex].excercises[0].workouts.last)
         
     }
     
