@@ -21,6 +21,5 @@ struct Workout{
         weight = Weight
         sets = Sets
         reps = Reps
-        date = Date
     }
 }
