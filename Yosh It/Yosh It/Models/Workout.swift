@@ -17,7 +17,7 @@ struct Workout{
         
     }
     
-    init(Weight: [Double], Sets: [Int], Reps: [Int], Date: String){
+    init(Weight: [Double], Sets: [Int], Reps: [Int]){
         weight = Weight
         sets = Sets
         reps = Reps
