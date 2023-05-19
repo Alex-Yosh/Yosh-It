@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ExcerciseView: View {
     
+    @Binding var isWorkingOut: Bool
     @EnvironmentObject var user: User
     var SplitName: String
     @StateObject var excerciseVM = ExcerciseViewModel()
@@ -30,6 +31,19 @@ struct ExcerciseView: View {
                     VStack{
                         Spacer()
                         HStack{
+                            Button(action: {
+                                excerciseVM.completeWorkOut()
+                                isWorkingOut.toggle()
+                            }, label: {
+                                ZStack{
+                                    Circle().frame(width: 100, height: 100, alignment: .bottomTrailing)
+                                        .foregroundColor(.green.opacity(60))
+                                    Image(systemName: "checkmark")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 60, height: 60, alignment: .bottomTrailing)
+                                }
+                            })
                             Spacer()
                             Button(action: {
                                 isAdding.toggle()
@@ -63,7 +77,7 @@ struct ExcerciseView: View {
                                 Text(errorMessage)
                             }
                         }
-                    }.padding(.trailing).padding(.bottom)
+                    }.padding()
                 }
             }.edgesIgnoringSafeArea(.bottom)
             
@@ -81,13 +95,6 @@ struct ExcerciseView: View {
             }
         }.onAppear(perform: {
             excerciseVM.user = user
-        })
-    }
-}
-
-
-struct ExcerciseView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExcerciseView(SplitName: "test")
+        }).navigationBarHidden(true)
     }
 }

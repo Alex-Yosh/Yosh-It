@@ -40,7 +40,7 @@ struct PopUpView: View{
                     .cornerRadius(25)
                     
                     Button(action: {
-                        excerciseVM.completeWorkout(SplitName: excerciseVM.splitname, ExcerciseName: excerciseVM.excercisename)
+                        excerciseVM.completeExcercise()
                         excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.confirm)

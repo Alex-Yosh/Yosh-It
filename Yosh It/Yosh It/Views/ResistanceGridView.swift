@@ -34,9 +34,10 @@ struct ResistanceGridView_Previews: PreviewProvider {
 
 struct CellContentView: View{
     var selectedSplit: Split
+    @State var isWorkingOut = false
     
     var body: some View{
-        NavigationLink(destination:  ExcerciseView(SplitName: selectedSplit.name)){
+        NavigationLink(destination:  ExcerciseView(isWorkingOut: $isWorkingOut, SplitName: selectedSplit.name), isActive: $isWorkingOut){
             ZStack{
                 Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.white).border(.black, width: 5).cornerRadius(10)
                 Text(selectedSplit.name).foregroundColor(.black)

@@ -21,11 +21,11 @@ struct ExcerciseListView: View{
             List(){
                 ForEach(user.splits[user.getSplitIndex(name: SplitName)].excercises){excercise in
                     Button(action: {
-                        excerciseVM.excercisename = excercise.name
-                        excerciseVM.isAddingWorkout.toggle()
+                            excerciseVM.excercisename = excercise.name
+                            excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Listitem(item: excercise)
-                    })
+                    }).disabled(excercise.isComplete)
                 }
             }.ignoresSafeArea(.all).background(CustomColours.Background)
         }.onAppear(perform: {

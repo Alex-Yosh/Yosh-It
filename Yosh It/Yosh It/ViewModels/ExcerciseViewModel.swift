@@ -101,9 +101,9 @@ class ExcerciseViewModel: ObservableObject{
     
     //TODO: make arrays into Key-value, possibly more efficent?
     //completes workout by injecting workouts into excercises
-    func completeWorkout(SplitName: String, ExcerciseName: String){
-        let indexSplit = user.getSplitIndex(name: SplitName)
-        let indexExcercise = user.splits[indexSplit].getExcerciseIndex(name: ExcerciseName)
+    func completeExcercise(){
+        let indexSplit = user.getSplitIndex(name: splitname)
+        let indexExcercise = user.splits[indexSplit].getExcerciseIndex(name: excercisename)
         
         let temp = Workout(Weight: weight.map({i in
             if (i != ""){
@@ -123,8 +123,14 @@ class ExcerciseViewModel: ObservableObject{
         }))
         
         user.splits[indexSplit].excercises[indexExcercise].workouts.append(temp)
-        
-        
+        user.splits[indexSplit].excercises[indexExcercise].isComplete = true
+    }
+    
+    func completeWorkOut() {
+        let indexSplit = user.getSplitIndex(name: splitname)
+        for i in (0..<user.splits[indexSplit].excercises.count){
+            user.splits[indexSplit].excercises[i].isComplete = false
+        }
     }
     
     //deletes alll data about sets, reps, weight

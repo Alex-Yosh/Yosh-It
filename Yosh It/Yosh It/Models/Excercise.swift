@@ -16,6 +16,9 @@ struct Excercise: Identifiable{
     private var prThree: Double?
     private var prSix: Double?
     
+    //for excerciseVM to see its been completed in a workout
+    var isComplete: Bool = false
+    
     
     init(Name: String){
         name = Name
