@@ -13,7 +13,7 @@ class ExcerciseViewModel: ObservableObject{
     
     
     @Published var user: User!
-    var splitname: String!
+    @Published var tempSplit: Split!
     var excercisename: String!
     
     @Published var isAddingWorkout = false
@@ -25,8 +25,18 @@ class ExcerciseViewModel: ObservableObject{
     @Published var rowColor = [Color] (repeating: .white, count: C.ExcercisePopup.numberOfRows)
 
     @Published var isValid = false
+    @Published var isListVisible = false
     
     private var cancellableSet: Set<AnyCancellable> = []
+    
+    //publsiher to ensure username is long enough
+    private var isUserLoadedPublisher: AnyPublisher<Bool, Never>{
+        $tempSplit
+            .map{   i in
+                i != nil
+            }
+            .eraseToAnyPublisher()
+    }
     
     
     //publisher to ensure password's are equal
@@ -76,15 +86,21 @@ class ExcerciseViewModel: ObservableObject{
                 self?.rowColor = $0
             })
             .store(in: &cancellableSet)
+        
+        isUserLoadedPublisher
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { [weak self] in
+                self?.isListVisible = $0
+            })
+            .store(in: &cancellableSet)
     }
     
     
     //adds excercise to split
     //if error, does not append. returns status as a string
-    func addExcercsise(name:String, SplitName: String) -> String{
-        let index = user.getSplitIndex(name: SplitName)
+    func addExcercsise(name:String) -> String{
         
-        if (user.splits[index].excercises.contains(where: { excercise in
+        if (tempSplit.excercises.contains(where: { excercise in
             excercise.name == name
         })){
             return Strings.ExcercisePage.isAlreadyError
@@ -95,15 +111,14 @@ class ExcerciseViewModel: ObservableObject{
         }
         
         
-        user.splits[index].excercises.append(Excercise(Name: name))
+        tempSplit.excercises.append(Excercise(Name: name))
         return Strings.ExcercisePage.isAddedSuccessfully
     }
     
     //TODO: make arrays into Key-value, possibly more efficent?
     //completes workout by injecting workouts into excercises
     func completeExcercise(){
-        let indexSplit = user.getSplitIndex(name: splitname)
-        let indexExcercise = user.splits[indexSplit].getExcerciseIndex(name: excercisename)
+        let indexExcercise = tempSplit.getExcerciseIndex(name: excercisename)
         
         let temp = Workout(Weight: weight.map({i in
             if (i != ""){
@@ -122,15 +137,16 @@ class ExcerciseViewModel: ObservableObject{
             return 0
         }))
         
-        user.splits[indexSplit].excercises[indexExcercise].workouts.append(temp)
-        user.splits[indexSplit].excercises[indexExcercise].isComplete = true
+        tempSplit.excercises[indexExcercise].workouts.append(temp)
+        tempSplit.excercises[indexExcercise].isComplete = true
     }
     
     func completeWorkOut() {
-        let indexSplit = user.getSplitIndex(name: splitname)
-        for i in (0..<user.splits[indexSplit].excercises.count){
-            user.splits[indexSplit].excercises[i].isComplete = false
+        let indexSplit = user.getSplitIndex(name: tempSplit.name)
+        for i in (0..<tempSplit.excercises.count){
+            tempSplit.excercises[i].isComplete = false
         }
+        user.splits[indexSplit] = tempSplit
     }
     
     //deletes alll data about sets, reps, weight

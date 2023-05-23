@@ -26,7 +26,9 @@ struct ExcerciseView: View {
                 TopBarView(title: SplitName)
                 
                 ZStack{
-                    ExcerciseListView(SplitName: SplitName, excerciseVM: excerciseVM)
+                    if(excerciseVM.isListVisible){
+                        ExcerciseListView(SplitName: SplitName, excerciseVM: excerciseVM)
+                    }
                     
                     VStack{
                         Spacer()
@@ -60,7 +62,7 @@ struct ExcerciseView: View {
                                 TextField(Strings.Dialog.textFieldNewSplit, text: $name)
                                     .textInputAutocapitalization(.never)
                                 Button(Strings.Dialog.confirm){
-                                    errorMessage = excerciseVM.addExcercsise(name: name, SplitName: SplitName)
+                                    errorMessage = excerciseVM.addExcercsise(name: name)
                                     if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
                                     {
                                         isError.toggle()
@@ -94,7 +96,9 @@ struct ExcerciseView: View {
                 )
             }
         }.onAppear(perform: {
+            let indexSplit = user.getSplitIndex(name: SplitName)
             excerciseVM.user = user
+            excerciseVM.tempSplit = user.splits[indexSplit]
         }).navigationBarHidden(true)
     }
 }
