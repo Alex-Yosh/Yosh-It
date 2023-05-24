@@ -9,13 +9,10 @@ import Foundation
 import SwiftUI
 
 struct ExcerciseView: View {
-    
-    @Binding var isWorkingOut: Bool
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var user: User
     var SplitName: String
     @StateObject var excerciseVM = ExcerciseViewModel()
-    @State private var isAdding = false
-    @State private var isError = false
     @State private var name = ""
     @State private var errorMessage = ""
     
@@ -27,15 +24,15 @@ struct ExcerciseView: View {
                 
                 ZStack{
                     if(excerciseVM.isListVisible){
-                        ExcerciseListView(SplitName: SplitName, excerciseVM: excerciseVM)
+                        ExcerciseListView(excerciseVM: excerciseVM)
                     }
                     
                     VStack{
                         Spacer()
                         HStack{
                             Button(action: {
-                                excerciseVM.completeWorkOut()
-                                isWorkingOut.toggle()
+                                dismiss()
+                                excerciseVM.completeSplit()
                             }, label: {
                                 ZStack{
                                     Circle().frame(width: 100, height: 100, alignment: .bottomTrailing)
@@ -48,7 +45,7 @@ struct ExcerciseView: View {
                             })
                             Spacer()
                             Button(action: {
-                                isAdding.toggle()
+                                excerciseVM.isAddingDialog.toggle()
                             }, label: {
                                 ZStack{
                                     Circle().frame(width: 100, height: 100, alignment: .bottomTrailing)
@@ -58,14 +55,14 @@ struct ExcerciseView: View {
                                         .foregroundColor(.white)
                                         .frame(width: 60, height: 60, alignment: .bottomTrailing)
                                 }
-                            }).alert(Strings.Dialog.titleNewSplit, isPresented: $isAdding) {
+                            }).alert(Strings.Dialog.titleNewSplit, isPresented: $excerciseVM.isAddingDialog) {
                                 TextField(Strings.Dialog.textFieldNewSplit, text: $name)
                                     .textInputAutocapitalization(.never)
                                 Button(Strings.Dialog.confirm){
                                     errorMessage = excerciseVM.addExcercsise(name: name)
                                     if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
                                     {
-                                        isError.toggle()
+                                        excerciseVM.isErrorDialog.toggle()
                                     }
                                     name = ""
                                 }
@@ -73,7 +70,7 @@ struct ExcerciseView: View {
                             }message: {
                                 Text(Strings.Dialog.messageNewSplitEnterName)
                             }
-                            .alert(Strings.Dialog.titleError, isPresented: $isError){
+                            .alert(Strings.Dialog.titleError, isPresented: $excerciseVM.isErrorDialog){
                                 EmptyView()
                             }message: {
                                 Text(errorMessage)
@@ -83,7 +80,7 @@ struct ExcerciseView: View {
                 }
             }.edgesIgnoringSafeArea(.bottom)
             
-            if(excerciseVM.isAddingWorkout){
+            if(excerciseVM.isDoingExcercise){
                 GeometryReader { _ in
                     
                     PopUpView(excerciseVM: excerciseVM)

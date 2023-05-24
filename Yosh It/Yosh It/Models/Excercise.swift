@@ -25,4 +25,9 @@ struct Excercise: Identifiable{
         workouts = [Workout]()
     }
     
+    //assumes there is a workout, else our of range error
+    func lastWorkout()-> Workout{
+        return workouts[workouts.count-1]
+    }
+    
 }

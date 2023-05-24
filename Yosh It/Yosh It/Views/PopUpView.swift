@@ -24,9 +24,7 @@ struct PopUpView: View{
                 Spacer()
                 HStack{
                     Button(action: {
-                        excerciseVM.wipeWorkout()
-                        excerciseVM.excercisename = nil
-                        excerciseVM.isAddingWorkout.toggle()
+                        excerciseVM.closePopUp()
                     }, label: {
                         Text(Strings.Dialog.cancel)
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -41,7 +39,6 @@ struct PopUpView: View{
                     
                     Button(action: {
                         excerciseVM.completeExcercise()
-                        excerciseVM.isAddingWorkout.toggle()
                     }, label: {
                         Text(Strings.Dialog.confirm)
                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -74,20 +71,20 @@ struct WorkOutSetView: View{
     
     var body: some View{
         HStack{
-            TextField("sets", text: $excerciseVM.sets[setNumber])
+            TextField(excerciseVM.getLastWorkoutSets(setNumber: setNumber), text: $excerciseVM.sets[setNumber])
                 .keyboardType(.numberPad)
                 .intergerOnly(value: $excerciseVM.sets[setNumber])
                 .limitInputLength(value: $excerciseVM.sets[setNumber], length: 1)
                 .multilineTextAlignment(.center)
             Text("x")
             
-            TextField("reps", text: $excerciseVM.reps[setNumber])
+            TextField(excerciseVM.getLastWorkoutReps(setNumber: setNumber), text: $excerciseVM.reps[setNumber])
                 .keyboardType(.numberPad)
                 .intergerOnly(value: $excerciseVM.reps[setNumber])
                 .limitInputLength(value: $excerciseVM.reps[setNumber], length: 2)
                 .multilineTextAlignment(.center)
             
-            TextField("weight", text: $excerciseVM.weight[setNumber])
+            TextField(excerciseVM.getLastWorkoutWeight(setNumber: setNumber), text: $excerciseVM.weight[setNumber])
                 .keyboardType(.numberPad)
                 .doubleOnly(value: $excerciseVM.weight[setNumber])
                 .limitInputLength(value: $excerciseVM.weight[setNumber], length: 5)

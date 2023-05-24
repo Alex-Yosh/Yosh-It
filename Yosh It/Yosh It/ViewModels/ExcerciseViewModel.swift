@@ -14,16 +14,18 @@ class ExcerciseViewModel: ObservableObject{
     
     @Published var user: User!
     @Published var tempSplit: Split!
-    var excercisename: String!
+    var excerciseIndex: Int!
     
-    @Published var isAddingWorkout = false
+    @Published var isDoingExcercise = false
+    @Published var isAddingDialog = false
+    @Published var isErrorDialog = false
     
     
     @Published var weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
     @Published var sets = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
     @Published var reps = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
     @Published var rowColor = [Color] (repeating: .white, count: C.ExcercisePopup.numberOfRows)
-
+    
     @Published var isValid = false
     @Published var isListVisible = false
     
@@ -42,35 +44,35 @@ class ExcerciseViewModel: ObservableObject{
     //publisher to ensure password's are equal
     private var isRowCorrect: AnyPublisher<[Color], Never>{
         Publishers.CombineLatest3($weight, $sets, $reps)
-              .map { weight, sets, reps in
-                  var temp = [Color](repeating: .white, count: C.ExcercisePopup.numberOfRows)
-                  for i in 0..<C.ExcercisePopup.numberOfRows{
-                      let weightIndex = weight[i].filter { "123456789.".contains($0) }
-                      let setIndex = sets[i].filter { "123456789.".contains($0) }
-                      let repIndex = reps[i].filter { "123456789.".contains($0) }
-                      
-                      if (weightIndex != "" && setIndex != "" && repIndex != "" && weightIndex != "." && weightIndex != ".."){
-                          temp[i] = .green
-                      }
-                      else if (weightIndex != "" || setIndex != "" || repIndex != ""){
-                          temp[i] = .red
-                      }
-                  }
-                  return temp
-              }
-              .eraseToAnyPublisher()
+            .map { weight, sets, reps in
+                var temp = [Color](repeating: .white, count: C.ExcercisePopup.numberOfRows)
+                for i in 0..<C.ExcercisePopup.numberOfRows{
+                    let weightIndex = weight[i].filter { "123456789.".contains($0) }
+                    let setIndex = sets[i].filter { "123456789.".contains($0) }
+                    let repIndex = reps[i].filter { "123456789.".contains($0) }
+                    
+                    if (weightIndex != "" && setIndex != "" && repIndex != "" && weightIndex != "." && weightIndex != ".."){
+                        temp[i] = .green
+                    }
+                    else if (weightIndex != "" || setIndex != "" || repIndex != ""){
+                        temp[i] = .red
+                    }
+                }
+                return temp
+            }
+            .eraseToAnyPublisher()
     }
     
     //publisher to ensure password's are equal
     private var isWorkoutCompleteable: AnyPublisher<Bool, Never>{
-            $rowColor
-              .map { i in
-                  return !(i.contains(.red) || i == [Color](repeating: .white, count: C.ExcercisePopup.numberOfRows))
-              }
-              .eraseToAnyPublisher()
+        $rowColor
+            .map { i in
+                return !(i.contains(.red) || i == [Color](repeating: .white, count: C.ExcercisePopup.numberOfRows))
+            }
+            .eraseToAnyPublisher()
     }
     
-        
+    
     init(){
         
         isWorkoutCompleteable
@@ -118,7 +120,6 @@ class ExcerciseViewModel: ObservableObject{
     //TODO: make arrays into Key-value, possibly more efficent?
     //completes workout by injecting workouts into excercises
     func completeExcercise(){
-        let indexExcercise = tempSplit.getExcerciseIndex(name: excercisename)
         
         let temp = Workout(Weight: weight.map({i in
             if (i != ""){
@@ -137,11 +138,13 @@ class ExcerciseViewModel: ObservableObject{
             return 0
         }))
         
-        tempSplit.excercises[indexExcercise].workouts.append(temp)
-        tempSplit.excercises[indexExcercise].isComplete = true
+        tempSplit.excercises[excerciseIndex].workouts.append(temp)
+        tempSplit.excercises[excerciseIndex].isComplete = true
+        
+        closePopUp()
     }
     
-    func completeWorkOut() {
+    func completeSplit() {
         let indexSplit = user.getSplitIndex(name: tempSplit.name)
         for i in (0..<tempSplit.excercises.count){
             tempSplit.excercises[i].isComplete = false
@@ -149,11 +152,52 @@ class ExcerciseViewModel: ObservableObject{
         user.splits[indexSplit] = tempSplit
     }
     
-    //deletes alll data about sets, reps, weight
-    func wipeWorkout(){
+    //deletes all data about sets, reps, weight
+    func closePopUp(){
+        
+        excerciseIndex = nil
+        isDoingExcercise.toggle()
         
         weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
         sets = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
         reps = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)
+        
+    }
+    
+    func createPopup(ExcerciseName: String){
+        excerciseIndex = tempSplit.getExcerciseIndex(name: ExcerciseName)
+        isDoingExcercise.toggle()
+    }
+    
+    func getLastWorkoutSets(setNumber: Int) -> String{
+        if(excerciseIndex != nil){
+            if (tempSplit.excercises[excerciseIndex].workouts.count > 0){
+                return String(tempSplit.excercises[excerciseIndex].lastWorkout().sets![setNumber])
+            }
+        }
+        return "0"
+        
+    }
+    
+    func getLastWorkoutReps(setNumber: Int) -> String{
+        if(excerciseIndex != nil){
+            if (tempSplit.excercises[excerciseIndex].workouts.count > 0){
+                return String(tempSplit.excercises[excerciseIndex].lastWorkout().reps![setNumber])
+            }
+        }
+        
+        return "0"
+        
+    }
+    
+    func getLastWorkoutWeight(setNumber: Int) -> String{
+        if(excerciseIndex != nil){
+            if (tempSplit.excercises[excerciseIndex].workouts.count > 0){
+                return String(tempSplit.excercises[excerciseIndex].lastWorkout().weight![setNumber])
+            }
+        }
+        
+        return "0.0"
+        
     }
 }

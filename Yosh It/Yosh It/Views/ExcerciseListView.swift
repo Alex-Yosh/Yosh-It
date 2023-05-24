@@ -11,7 +11,6 @@ import SwiftUI
 
 struct ExcerciseListView: View{
     
-    var SplitName: String
     @ObservedObject var excerciseVM: ExcerciseViewModel
     
     var body: some View{
@@ -20,8 +19,7 @@ struct ExcerciseListView: View{
             List(){
                 ForEach(excerciseVM.tempSplit.excercises){excercise in
                     Button(action: {
-                            excerciseVM.excercisename = excercise.name
-                            excerciseVM.isAddingWorkout.toggle()
+                        excerciseVM.createPopup(ExcerciseName: excercise.name)
                     }, label: {
                         Listitem(item: excercise)
                     }).disabled(excercise.isComplete)
