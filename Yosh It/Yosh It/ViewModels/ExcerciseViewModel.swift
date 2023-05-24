@@ -41,7 +41,7 @@ class ExcerciseViewModel: ObservableObject{
     }
     
     
-    //publisher to ensure password's are equal
+    //publisher to ensure row is correct
     private var isRowCorrect: AnyPublisher<[Color], Never>{
         Publishers.CombineLatest3($weight, $sets, $reps)
             .map { weight, sets, reps in
@@ -118,8 +118,9 @@ class ExcerciseViewModel: ObservableObject{
     }
     
     //TODO: make arrays into Key-value, possibly more efficent?
-    //completes workout by injecting workouts into excercises
+    //completes workout by organizing and injecting workouts into excercises
     func completeExcercise(){
+        moveRowsUpToEmpty()
         
         let temp = Workout(Weight: weight.map({i in
             if (i != ""){
@@ -142,6 +143,27 @@ class ExcerciseViewModel: ObservableObject{
         tempSplit.excercises[excerciseIndex].isComplete = true
         
         closePopUp()
+    }
+    
+    //if empty row, removes it
+    func moveRowsUpToEmpty(){
+        var removeAt: [Int] = []
+        for i in (0..<C.ExcercisePopup.numberOfRows){
+            print(String(i))
+            if (sets[i] == ""){
+                sets.append("")
+                reps.append("")
+                weight.append("")
+                removeAt.append(i)
+            }
+        }
+        removeAt.reverse()
+        
+        for i in (0..<removeAt.count){
+                sets.remove(at: removeAt[i])
+                reps.remove(at: removeAt[i])
+                weight.remove(at: removeAt[i])
+        }
     }
     
     func completeSplit() {
