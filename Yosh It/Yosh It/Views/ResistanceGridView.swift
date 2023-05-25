@@ -12,8 +12,7 @@ import SwiftUI
 struct ResistanceGridView: View{
     @ObservedObject var ResistnaceVM : ResistanceViewModel
     @EnvironmentObject var user: User
-    @State var isAdding = false
-    @State private var name = ""
+    
     
     var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -22,9 +21,9 @@ struct ResistanceGridView: View{
             ForEach(user.splits){ split in
                 CellContentView(selectedSplit: split)
             }
-            AddCellView(isAdding: $isAdding)
+            AddCellView(isAdding: $ResistnaceVM.isAddingDialog)
             
-        }.resistanceTextFieldAlert(resistanceVM: ResistnaceVM, isAdding: $isAdding, name: $name)
+        }.resistanceTextFieldAlert(resistanceVM: ResistnaceVM)
     }
 }
 

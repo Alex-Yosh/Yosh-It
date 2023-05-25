@@ -15,8 +15,10 @@ struct Strings{
         static let cancel = "Cancel"
         static let titleError = "Error"
         static let messageNewSplitEnterName = "Please enter the name of your split"
+        static let messageNewExcerciseEnterName = "Please enter the name of your excercise"
         static let titleNewSplit = "New Split"
-        static let textFieldNewSplit = "Name"
+        static let titleNewExcercise = "New Excercise"
+        static let textFieldNewName = "Name"
         
     }
     

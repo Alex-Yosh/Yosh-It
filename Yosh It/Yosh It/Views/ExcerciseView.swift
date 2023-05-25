@@ -13,8 +13,6 @@ struct ExcerciseView: View {
     @EnvironmentObject var user: User
     var SplitName: String
     @StateObject var excerciseVM = ExcerciseViewModel()
-    @State private var name = ""
-    @State private var errorMessage = ""
     
     
     var body: some View {
@@ -55,29 +53,10 @@ struct ExcerciseView: View {
                                         .foregroundColor(.white)
                                         .frame(width: 60, height: 60, alignment: .bottomTrailing)
                                 }
-                            }).alert(Strings.Dialog.titleNewSplit, isPresented: $excerciseVM.isAddingDialog) {
-                                TextField(Strings.Dialog.textFieldNewSplit, text: $name)
-                                    .textInputAutocapitalization(.never)
-                                Button(Strings.Dialog.confirm){
-                                    errorMessage = excerciseVM.addExcercsise(name: name)
-                                    if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
-                                    {
-                                        excerciseVM.isErrorDialog.toggle()
-                                    }
-                                    name = ""
-                                }
-                                Button(Strings.Dialog.cancel, role: .cancel) { name = ""}
-                            }message: {
-                                Text(Strings.Dialog.messageNewSplitEnterName)
-                            }
-                            .alert(Strings.Dialog.titleError, isPresented: $excerciseVM.isErrorDialog){
-                                EmptyView()
-                            }message: {
-                                Text(errorMessage)
-                            }
+                            })
                         }
                     }.padding()
-                }
+                }.excerciseTextFieldAlert(excerciseVM: excerciseVM)
             }.edgesIgnoringSafeArea(.bottom)
             
             if(excerciseVM.isDoingExcercise){

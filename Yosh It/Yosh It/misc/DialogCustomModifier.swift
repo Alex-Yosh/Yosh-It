@@ -8,23 +8,21 @@
 import Foundation
 import SwiftUI
 
-struct TextFieldAlert: ViewModifier {
+struct TextFieldAlertResistance: ViewModifier {
     @ObservedObject var ResistanceVM: ResistanceViewModel
-    @Binding var isAdding: Bool
-    @State var isError: Bool = false
-    @Binding var name: String
+    @State var name = ""
     @State var errorMessage: String = ""
     
     func body(content: Content) -> some View {
         if #available(iOS 16.0, *) {
-            content.alert(Strings.Dialog.titleNewSplit, isPresented: $isAdding) {
-                TextField(Strings.Dialog.textFieldNewSplit, text: $name)
+            content.alert(Strings.Dialog.titleNewSplit, isPresented: $ResistanceVM.isAddingDialog) {
+                TextField(Strings.Dialog.textFieldNewName, text: $name)
                     .textInputAutocapitalization(.never)
                 Button(Strings.Dialog.confirm){
                     errorMessage = ResistanceVM.addSplit(name: name)
                     if (errorMessage != Strings.ResistancePage.isAddedSuccessfully)
                     {
-                        isError.toggle()
+                        ResistanceVM.isErrorDialog.toggle()
                     }
                     name = ""
                 }
@@ -32,7 +30,7 @@ struct TextFieldAlert: ViewModifier {
             }message: {
                 Text(Strings.Dialog.messageNewSplitEnterName)
             }
-            .alert(Strings.Dialog.titleError, isPresented: $isError){
+            .alert(Strings.Dialog.titleError, isPresented: $ResistanceVM.isErrorDialog){
                 EmptyView()
             }message: {
                 Text(errorMessage)
@@ -40,18 +38,19 @@ struct TextFieldAlert: ViewModifier {
         } else {
             ZStack(alignment: .center) {
                 content
-                    .disabled(isAdding)
-                    .disabled(isError)
-                if isAdding {
+                    .disabled(ResistanceVM.isAddingDialog)
+                    .disabled(ResistanceVM.isErrorDialog)
+                if ResistanceVM.isAddingDialog {
                     VStack {
                         Text(Strings.Dialog.titleNewSplit).font(.headline).padding()
-                        TextField(Strings.Dialog.textFieldNewSplit, text: $name).textFieldStyle(.roundedBorder).padding()
+                        TextField(Strings.Dialog.textFieldNewName, text: $name).textFieldStyle(.roundedBorder).padding()
                         Divider()
                         HStack{
                             Spacer()
                             Button(role: .cancel) {
                                 withAnimation {
-                                    isAdding.toggle()
+                                    ResistanceVM.isAddingDialog.toggle()
+                                    name = ""
                                 }
                             } label: {
                                 Text(Strings.Dialog.cancel)
@@ -63,10 +62,10 @@ struct TextFieldAlert: ViewModifier {
                                 errorMessage = ResistanceVM.addSplit(name: name)
                                 if (errorMessage != Strings.ResistancePage.isAddedSuccessfully)
                                 {
-                                    isError.toggle()
+                                    ResistanceVM.isErrorDialog.toggle()
                                 }
                                 name = ""
-                                isAdding.toggle()
+                                ResistanceVM.isAddingDialog.toggle()
                                 
                             } label: {
                                 Text(Strings.Dialog.confirm)
@@ -82,14 +81,112 @@ struct TextFieldAlert: ViewModifier {
                             .stroke(.quaternary, lineWidth: 1)
                     }
                 }
-                if isError{
+                if ResistanceVM.isErrorDialog{
                     VStack {
                         Text(Strings.Dialog.titleError).font(.headline).padding()
                         Text(errorMessage).padding()
                         Divider()
                         Button(role: .cancel) {
                             withAnimation {
-                                isError.toggle()
+                                ResistanceVM.isErrorDialog.toggle()
+                            }
+                        } label: {
+                            Text(Strings.Dialog.confirm)
+                        }.padding()
+                    }.background(.background)
+                        .frame(width: 300, height: 175)
+                        .cornerRadius(20)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(.quaternary, lineWidth: 1)
+                        }
+                }
+            }
+        }
+    }
+}
+
+struct TextFieldAlertExcercise: ViewModifier {
+    @ObservedObject var excerciseVM: ExcerciseViewModel
+    
+    @State var addingName = ""
+    @State var errorMessage = ""
+    @State var isErrorDialog = false
+    
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content.alert(Strings.Dialog.titleNewExcercise, isPresented: $excerciseVM.isAddingDialog) {
+                TextField(Strings.Dialog.textFieldNewName, text: $addingName)
+                    .textInputAutocapitalization(.never)
+                Button(Strings.Dialog.confirm){
+                    errorMessage = excerciseVM.addExcercsise(name: addingName)
+                    if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
+                    {
+                        isErrorDialog.toggle()
+                    }
+                    addingName = ""
+                }
+                Button(Strings.Dialog.cancel, role: .cancel) { addingName = ""}
+            }message: {
+                Text(Strings.Dialog.messageNewExcerciseEnterName)
+            }
+            .alert(Strings.Dialog.titleError, isPresented: $isErrorDialog){
+                EmptyView()
+            }message: {
+                Text(errorMessage)
+            }
+        } else {
+            ZStack(alignment: .center) {
+                content
+                    .disabled(excerciseVM.isAddingDialog)
+                    .disabled(isErrorDialog)
+                if excerciseVM.isAddingDialog {
+                    VStack {
+                        Text(Strings.Dialog.titleNewExcercise).font(.headline).padding()
+                        TextField(Strings.Dialog.textFieldNewName, text: $addingName).textFieldStyle(.roundedBorder).padding()
+                        Divider()
+                        HStack{
+                            Spacer()
+                            Button(role: .cancel) {
+                                withAnimation {
+                                    excerciseVM.isAddingDialog.toggle()
+                                }
+                            } label: {
+                                Text(Strings.Dialog.cancel)
+                            }
+                            Spacer()
+                            Divider()
+                            Spacer()
+                            Button() {
+                                errorMessage = excerciseVM.addExcercsise(name: addingName)
+                                if (errorMessage != Strings.ExcercisePage.isAddedSuccessfully)
+                                {
+                                    isErrorDialog.toggle()
+                                }
+                                addingName = ""
+                                excerciseVM.isAddingDialog.toggle()
+                            } label: {
+                                Text(Strings.Dialog.confirm)
+                            }
+                            Spacer()
+                        }
+                    }
+                    .background(.background)
+                    .frame(width: 300, height: 200)
+                    .cornerRadius(20)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.quaternary, lineWidth: 1)
+                    }
+                }
+                if isErrorDialog{
+                    VStack {
+                        Text(Strings.Dialog.titleError).font(.headline).padding()
+                        Text(errorMessage).padding()
+                        Divider()
+                        Button(role: .cancel) {
+                            withAnimation {
+                                isErrorDialog.toggle()
                             }
                         } label: {
                             Text(Strings.Dialog.confirm)
@@ -109,10 +206,14 @@ struct TextFieldAlert: ViewModifier {
 
 extension View {
     func resistanceTextFieldAlert(
-        resistanceVM: ResistanceViewModel,
-        isAdding: Binding<Bool>,
-        name: Binding<String>
+        resistanceVM: ResistanceViewModel
     ) -> some View {
-        self.modifier(TextFieldAlert(ResistanceVM: resistanceVM, isAdding: isAdding, name: name))
+        self.modifier(TextFieldAlertResistance(ResistanceVM: resistanceVM))
+    }
+    
+    func excerciseTextFieldAlert(
+        excerciseVM: ExcerciseViewModel
+    ) -> some View {
+        self.modifier(TextFieldAlertExcercise(excerciseVM: excerciseVM))
     }
 }

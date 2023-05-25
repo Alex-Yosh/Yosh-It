@@ -18,7 +18,6 @@ class ExcerciseViewModel: ObservableObject{
     
     @Published var isDoingExcercise = false
     @Published var isAddingDialog = false
-    @Published var isErrorDialog = false
     
     
     @Published var weight = [String] (repeating: "", count: C.ExcercisePopup.numberOfRows)

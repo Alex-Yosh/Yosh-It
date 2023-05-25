@@ -13,6 +13,8 @@ class ResistanceViewModel: ObservableObject{
     
     
     @Published var user: User!
+    @Published var isAddingDialog = false
+    @Published var isErrorDialog = false
     
     init(){
     }
