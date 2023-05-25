@@ -26,6 +26,7 @@ struct ResistanceView: View {
         }.onAppear(perform: {
             ResistnaceVM.user = user
         }).environmentObject(user)
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

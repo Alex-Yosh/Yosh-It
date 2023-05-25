@@ -41,6 +41,7 @@ struct TextFieldAlert: ViewModifier {
             ZStack(alignment: .center) {
                 content
                     .disabled(isAdding)
+                    .disabled(isError)
                 if isAdding {
                     VStack {
                         Text(Strings.Dialog.titleNewSplit).font(.headline).padding()
@@ -53,7 +54,7 @@ struct TextFieldAlert: ViewModifier {
                                     isAdding.toggle()
                                 }
                             } label: {
-                                Text("Cancel")
+                                Text(Strings.Dialog.cancel)
                             }
                             Spacer()
                             Divider()
@@ -65,9 +66,10 @@ struct TextFieldAlert: ViewModifier {
                                     isError.toggle()
                                 }
                                 name = ""
+                                isAdding.toggle()
                                 
                             } label: {
-                                Text("Done")
+                                Text(Strings.Dialog.confirm)
                             }
                             Spacer()
                         }
@@ -79,6 +81,26 @@ struct TextFieldAlert: ViewModifier {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(.quaternary, lineWidth: 1)
                     }
+                }
+                if isError{
+                    VStack {
+                        Text(Strings.Dialog.titleError).font(.headline).padding()
+                        Text(errorMessage).padding()
+                        Divider()
+                        Button(role: .cancel) {
+                            withAnimation {
+                                isError.toggle()
+                            }
+                        } label: {
+                            Text(Strings.Dialog.confirm)
+                        }.padding()
+                    }.background(.background)
+                        .frame(width: 300, height: 175)
+                        .cornerRadius(20)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(.quaternary, lineWidth: 1)
+                        }
                 }
             }
         }
