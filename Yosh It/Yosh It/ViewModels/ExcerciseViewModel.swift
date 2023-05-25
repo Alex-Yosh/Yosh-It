@@ -28,6 +28,7 @@ class ExcerciseViewModel: ObservableObject{
     
     @Published var isValid = false
     @Published var isListVisible = false
+    @Published var isCheckmark = false
     
     private var cancellableSet: Set<AnyCancellable> = []
     
@@ -63,7 +64,7 @@ class ExcerciseViewModel: ObservableObject{
             .eraseToAnyPublisher()
     }
     
-    //publisher to ensure password's are equal
+    //publisher to workout is completable
     private var isWorkoutCompleteable: AnyPublisher<Bool, Never>{
         $rowColor
             .map { i in
@@ -72,8 +73,28 @@ class ExcerciseViewModel: ObservableObject{
             .eraseToAnyPublisher()
     }
     
+    //publisher to workout is completable
+    private var isSplitCompleteable: AnyPublisher<Bool, Never>{
+        $tempSplit
+            .map { i in
+                if (i != nil){
+                    for excercise in i!.excercises{
+                        if (excercise.isComplete){
+                            return true
+                        }
+                    }
+                }
+                return false
+            }
+            .eraseToAnyPublisher()
+    }
+    
     
     init(){
+        
+        if #unavailable(iOS 16.0) {
+            UITableView.appearance().backgroundColor = .clear
+        }
         
         isWorkoutCompleteable
             .receive(on: RunLoop.main)
@@ -95,6 +116,14 @@ class ExcerciseViewModel: ObservableObject{
                 self?.isListVisible = $0
             })
             .store(in: &cancellableSet)
+        
+        isSplitCompleteable
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { [weak self] in
+                self?.isCheckmark = $0
+            })
+            .store(in: &cancellableSet)
+        
     }
     
     
@@ -149,7 +178,6 @@ class ExcerciseViewModel: ObservableObject{
     func moveRowsUpToEmpty(){
         var removeAt: [Int] = []
         for i in (0..<C.ExcercisePopup.numberOfRows){
-            print(String(i))
             if (sets[i] == ""){
                 sets.append("")
                 reps.append("")
@@ -168,6 +196,11 @@ class ExcerciseViewModel: ObservableObject{
     
     func completeSplit() {
         let indexSplit = user.getSplitIndex(name: tempSplit.name)
+        if (isCheckmark){
+            for i in (0..<tempSplit.excercises.count){
+                tempSplit.excercises[i].isComplete = false
+            }
+        }
         for i in (0..<tempSplit.excercises.count){
             tempSplit.excercises[i].isComplete = false
         }

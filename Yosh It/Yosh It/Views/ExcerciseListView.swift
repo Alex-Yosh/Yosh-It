@@ -11,11 +11,12 @@ import SwiftUI
 
 struct ExcerciseListView: View{
     
+    
     @ObservedObject var excerciseVM: ExcerciseViewModel
+    
     
     var body: some View{
         ZStack{
-            
             List(){
                 ForEach(excerciseVM.tempSplit.excercises){excercise in
                     Button(action: {
@@ -24,7 +25,9 @@ struct ExcerciseListView: View{
                         Listitem(item: excercise)
                     }).disabled(excercise.isComplete)
                 }
-            }.ignoresSafeArea(.all).background(CustomColours.Background)
+            }
+            .clearListBackground()
+            .background(CustomColours.Background.ignoresSafeArea(.all))
         }
     }
     

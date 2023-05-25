@@ -12,6 +12,8 @@ import SwiftUI
 struct ResistanceGridView: View{
     @ObservedObject var ResistnaceVM : ResistanceViewModel
     @EnvironmentObject var user: User
+    @State var isAdding = false
+    @State private var name = ""
     
     var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -20,15 +22,15 @@ struct ResistanceGridView: View{
             ForEach(user.splits){ split in
                 CellContentView(selectedSplit: split)
             }
-            AddCellView(ResistnaceVM: ResistnaceVM)
+            AddCellView(isAdding: $isAdding)
             
-        }
+        }.resistanceTextFieldAlert(resistanceVM: ResistnaceVM, isAdding: $isAdding, name: $name)
     }
 }
 
 struct ResistanceGridView_Previews: PreviewProvider {
   static var previews: some View {
-      ResistanceGridView(ResistnaceVM: ResistanceViewModel())
+      ResistanceGridView(ResistnaceVM: ResistanceViewModel()).environmentObject(User.userObj)
   }
 }
 
@@ -47,11 +49,7 @@ struct CellContentView: View{
 
 
 struct AddCellView: View{
-    @State private var isAdding = false
-    @State private var isError = false
-    @State private var name = ""
-    @ObservedObject var ResistnaceVM : ResistanceViewModel
-    @State private var errorMessage = ""
+    @Binding var isAdding: Bool
     
     
     var body: some View{
@@ -76,27 +74,6 @@ struct AddCellView: View{
                 }
             }.padding(10)
         }
-        .alert(Strings.Dialog.titleNewSplit, isPresented: $isAdding) {
-            TextField(Strings.Dialog.textFieldNewSplit, text: $name)
-                .textInputAutocapitalization(.never)
-            Button(Strings.Dialog.confirm){
-                errorMessage = ResistnaceVM.addSplit(name: name)
-                if (errorMessage != Strings.ResistancePage.isAddedSuccessfully)
-                {
-                    isError.toggle()
-                }
-                name = ""
-            }
-            Button(Strings.Dialog.cancel, role: .cancel) { name = ""}
-        }message: {
-            Text(Strings.Dialog.messageNewSplitEnterName)
-        }
-        .alert(Strings.Dialog.titleError, isPresented: $isError){
-            EmptyView()
-        }message: {
-            Text(errorMessage)
-        }
-        
     }
     
 }

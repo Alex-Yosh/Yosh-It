@@ -21,6 +21,9 @@ struct C{
     
     struct ExcercisePopup{
         static let numberOfRows = 8
+        static let lengthOfReps = 2
+        static let lengthOfSets = 2
+        static let lengthOfWeight = 5
         
         enum RowState{
             case clear, correct, incorrect

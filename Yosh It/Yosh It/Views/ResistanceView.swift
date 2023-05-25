@@ -19,7 +19,7 @@ struct ResistanceView: View {
                 TopBarView(title: Strings.ResistancePage.pageName)
                 
                 ScrollView(){
-                    ResistanceGridView(ResistnaceVM: ResistnaceVM )
+                    ResistanceGridView(ResistnaceVM: ResistnaceVM ).navigationBarHidden(true)
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
             

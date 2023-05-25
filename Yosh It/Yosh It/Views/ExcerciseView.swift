@@ -32,12 +32,12 @@ struct ExcerciseView: View {
                         HStack{
                             Button(action: {
                                 dismiss()
-                                excerciseVM.completeSplit()
+                                    excerciseVM.completeSplit()
                             }, label: {
                                 ZStack{
                                     Circle().frame(width: 100, height: 100, alignment: .bottomTrailing)
-                                        .foregroundColor(.green.opacity(60))
-                                    Image(systemName: "checkmark")
+                                        .foregroundColor(excerciseVM.isCheckmark ? .green.opacity(60): .red.opacity(60))
+                                    Image(systemName: excerciseVM.isCheckmark ? "checkmark.circle" : "x.circle")
                                         .resizable()
                                         .foregroundColor(.white)
                                         .frame(width: 60, height: 60, alignment: .bottomTrailing)
@@ -92,7 +92,8 @@ struct ExcerciseView: View {
                         .edgesIgnoringSafeArea(.all)
                 )
             }
-        }.onAppear(perform: {
+        }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
+        .onAppear(perform: {
             let indexSplit = user.getSplitIndex(name: SplitName)
             excerciseVM.user = user
             excerciseVM.tempSplit = user.splits[indexSplit]

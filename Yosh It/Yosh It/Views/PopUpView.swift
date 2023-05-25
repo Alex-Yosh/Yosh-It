@@ -74,20 +74,20 @@ struct WorkOutSetView: View{
             TextField(excerciseVM.getLastWorkoutSets(setNumber: setNumber), text: $excerciseVM.sets[setNumber])
                 .keyboardType(.numberPad)
                 .intergerOnly(value: $excerciseVM.sets[setNumber])
-                .limitInputLength(value: $excerciseVM.sets[setNumber], length: 1)
+                .limitInputLength(value: $excerciseVM.sets[setNumber], length: C.ExcercisePopup.lengthOfSets)
                 .multilineTextAlignment(.center)
             Text("x")
             
             TextField(excerciseVM.getLastWorkoutReps(setNumber: setNumber), text: $excerciseVM.reps[setNumber])
                 .keyboardType(.numberPad)
                 .intergerOnly(value: $excerciseVM.reps[setNumber])
-                .limitInputLength(value: $excerciseVM.reps[setNumber], length: 2)
+                .limitInputLength(value: $excerciseVM.reps[setNumber], length: C.ExcercisePopup.lengthOfReps)
                 .multilineTextAlignment(.center)
             
             TextField(excerciseVM.getLastWorkoutWeight(setNumber: setNumber), text: $excerciseVM.weight[setNumber])
                 .keyboardType(.numberPad)
                 .doubleOnly(value: $excerciseVM.weight[setNumber])
-                .limitInputLength(value: $excerciseVM.weight[setNumber], length: 5)
+                .limitInputLength(value: $excerciseVM.weight[setNumber], length: C.ExcercisePopup.lengthOfWeight)
                 .multilineTextAlignment(.center)
             
         }.background(excerciseVM.rowColor[setNumber])
