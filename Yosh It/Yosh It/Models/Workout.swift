@@ -8,7 +8,6 @@
 import Foundation
 
 struct Workout{
-    var date: String?
     var sets: [Int]?
     var reps: [Int]?
     var weight: [Double]?

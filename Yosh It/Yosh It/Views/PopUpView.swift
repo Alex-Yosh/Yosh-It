@@ -14,12 +14,13 @@ struct PopUpView: View{
     
     var body: some View{
         ZStack{
-            Rectangle().foregroundColor(.white).cornerRadius(10).padding(20)
+            Rectangle().foregroundColor(.white).cornerRadius(10).padding(20).padding(.vertical, 15)
             
             VStack(){
                 ForEach(0..<C.ExcercisePopup.numberOfRows){ i in
                     WorkOutSetView(excerciseVM: excerciseVM, setNumber: i)
                 }
+                
                 HStack{
                     Button(action: {
                         excerciseVM.closePopUp()
@@ -28,12 +29,11 @@ struct PopUpView: View{
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .font(.system(size: 18))
                             .padding()
-                            .foregroundColor(.black)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 25)
-                                    .stroke(Color.black, lineWidth: 2))
+                            .background(CustomColours.MainIndigo)
+                            .foregroundColor(.white)
+                            .cornerRadius(25)
+                        
                     })
-                    .cornerRadius(25)
                     
                     Button(action: {
                         excerciseVM.completeExcercise()
@@ -42,12 +42,10 @@ struct PopUpView: View{
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .font(.system(size: 18))
                             .padding()
-                            .foregroundColor(.black)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 25)
-                                    .stroke(Color.black, lineWidth: 2))
+                            .background(excerciseVM.isValid ? CustomColours.MainIndigo: CustomColours.FaintIndigo)
+                            .foregroundColor(.white)
+                            .cornerRadius(25)
                     }).disabled(!excerciseVM.isValid)
-                        .cornerRadius(25)
                 }
             }.padding(40)
         }
@@ -79,6 +77,7 @@ struct WorkOutSetView: View{
                 .intergerOnly(value: $excerciseVM.sets[setNumber])
                 .limitInputLength(value: $excerciseVM.sets[setNumber], length: C.ExcercisePopup.lengthOfSets)
                 .background(excerciseVM.rowColor[setNumber])
+                .keyboardType(.numberPad)
             }
             
             VStack{
@@ -89,6 +88,7 @@ struct WorkOutSetView: View{
                     Text(excerciseVM.getLastWorkoutReps(setNumber: setNumber)).foregroundColor(.gray)
                 }                .intergerOnly(value: $excerciseVM.reps[setNumber])
                     .limitInputLength(value: $excerciseVM.reps[setNumber], length: C.ExcercisePopup.lengthOfReps).background(excerciseVM.rowColor[setNumber])
+                    .keyboardType(.numberPad)
             }
             
             VStack{
@@ -101,11 +101,11 @@ struct WorkOutSetView: View{
                         .doubleOnly(value: $excerciseVM.weight[setNumber])
                         .limitInputLength(value: $excerciseVM.weight[setNumber], length: C.ExcercisePopup.lengthOfWeight)
                 }.background(excerciseVM.rowColor[setNumber])
+                    .keyboardType(.decimalPad)
             }
         }
         .foregroundColor(.black)
         .multilineTextAlignment(.center)
-        .keyboardType(.numberPad)
     }
 }
 

@@ -12,6 +12,7 @@ struct Excercise: Identifiable{
     var name: String
     private var lastDate: String?
     var workouts: [Workout]
+    var date: String?
     private var prOne: Double?
     private var prThree: Double?
     private var prSix: Double?

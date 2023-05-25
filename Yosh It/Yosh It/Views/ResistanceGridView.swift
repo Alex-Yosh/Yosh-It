@@ -39,8 +39,14 @@ struct CellContentView: View{
     var body: some View{
         NavigationLink(destination:  ExcerciseView(SplitName: selectedSplit.name)){
             ZStack{
-                Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(.white).border(.black, width: 5).cornerRadius(10)
-                Text(selectedSplit.name).foregroundColor(.black)
+                Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(CustomColours.FaintIndigo).border(.black, width: 5).cornerRadius(10)
+                VStack(){
+                    Text(selectedSplit.name).foregroundColor(.black).padding()
+                    if(selectedSplit.lastDateCompleted != nil){
+                        Text("Last Date Completed:\n" + selectedSplit.getLastDateCompleted()).foregroundColor(.black)
+                            .font(.system(size: 16))
+                    }
+                }
             }
         }.padding(10)
     }

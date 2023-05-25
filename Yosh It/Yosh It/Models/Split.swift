@@ -13,6 +13,7 @@ struct Split: Identifiable{
     internal var id = UUID()
     var name: String
     var excercises: [Excercise]
+    var lastDateCompleted: Date?
     
     
     
@@ -28,6 +29,13 @@ struct Split: Identifiable{
             }
         }
         return -1
+    }
+    
+    //returns error if split hasnt been completed yet
+    func getLastDateCompleted() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E MMM d y"
+        return formatter.string(from: lastDateCompleted!)
     }
     
 }

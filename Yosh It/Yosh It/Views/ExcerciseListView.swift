@@ -24,6 +24,7 @@ struct ExcerciseListView: View{
                     }, label: {
                         Listitem(item: excercise)
                     }).disabled(excercise.isComplete)
+                        .listRowBackground(Color.white)
                 }
                 if(excerciseVM.tempSplit.excercises.isEmpty){
                     Spacer().listRowBackground(Color.clear)
@@ -42,7 +43,14 @@ struct Listitem: View{
     var item: Excercise
     
     var body: some View{
-        Text(item.name)
+        HStack{
+            Text(item.name).foregroundColor(item.isComplete ? .gray : .black)
+            Spacer()
+            if (item.isComplete){
+                Image(systemName:"checkmark")
+                    .foregroundColor(.green)
+            }
+        }
     }
     
 }

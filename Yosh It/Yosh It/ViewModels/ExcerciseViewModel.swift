@@ -141,7 +141,9 @@ class ExcerciseViewModel: ObservableObject{
             return Strings.ExcercisePage.isEmptyError
         }
         
+        let indexSplit = user.getSplitIndex(name: tempSplit.name)
         
+        user.splits[indexSplit].excercises.append(Excercise(Name: name))
         tempSplit.excercises.append(Excercise(Name: name))
         return Strings.ExcercisePage.isAddedSuccessfully
     }
@@ -205,6 +207,7 @@ class ExcerciseViewModel: ObservableObject{
             tempSplit.excercises[i].isComplete = false
         }
         user.splits[indexSplit] = tempSplit
+        user.splits[indexSplit].lastDateCompleted = Date.now
     }
     
     //deletes all data about sets, reps, weight

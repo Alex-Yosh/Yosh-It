@@ -16,7 +16,7 @@ struct TopBarView: View {
         HStack (alignment: .bottom){
             Text(title!)
             Spacer()
-            Image(systemName: "gearshape.fill")
+            //Image(systemName: "gearshape.fill")
         }.foregroundColor(.white)
             .frame(maxWidth:.infinity)
             .padding()

@@ -30,7 +30,9 @@ struct ExcerciseView: View {
                         HStack{
                             Button(action: {
                                 dismiss()
+                                if(excerciseVM.isCheckmark){
                                     excerciseVM.completeSplit()
+                                }
                             }, label: {
                                 ZStack{
                                     Circle().frame(width: 100, height: 100, alignment: .bottomTrailing)
