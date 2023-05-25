@@ -68,37 +68,44 @@ struct WorkOutSetView: View{
     var setNumber: Int
     
     var body: some View{
-        HStack{
+        HStack(spacing: 0){
             VStack(){
                 if (setNumber==0){
                     Text("Sets")
                 }
-                TextField(excerciseVM.getLastWorkoutSets(setNumber: setNumber), text: $excerciseVM.sets[setNumber])
-                    .intergerOnly(value: $excerciseVM.sets[setNumber])
-                    .limitInputLength(value: $excerciseVM.sets[setNumber], length: C.ExcercisePopup.lengthOfSets)
+                TextField("", text: $excerciseVM.sets[setNumber]).placeholder(when: excerciseVM.sets[setNumber].isEmpty, alignment: .center) {
+                    Text(excerciseVM.getLastWorkoutSets(setNumber: setNumber)).foregroundColor(.gray)
+                }
+                .intergerOnly(value: $excerciseVM.sets[setNumber])
+                .limitInputLength(value: $excerciseVM.sets[setNumber], length: C.ExcercisePopup.lengthOfSets)
+                .background(excerciseVM.rowColor[setNumber])
             }
             
             VStack{
-                    if (setNumber==0){
-                        Text("Reps")
-                    }
-                TextField(excerciseVM.getLastWorkoutReps(setNumber: setNumber), text: $excerciseVM.reps[setNumber])                .intergerOnly(value: $excerciseVM.reps[setNumber])
-                    .limitInputLength(value: $excerciseVM.reps[setNumber], length: C.ExcercisePopup.lengthOfReps)
+                if (setNumber==0){
+                    Text("Reps")
+                }
+                TextField("", text: $excerciseVM.reps[setNumber]).placeholder(when: excerciseVM.reps[setNumber].isEmpty, alignment: .center) {
+                    Text(excerciseVM.getLastWorkoutReps(setNumber: setNumber)).foregroundColor(.gray)
+                }                .intergerOnly(value: $excerciseVM.reps[setNumber])
+                    .limitInputLength(value: $excerciseVM.reps[setNumber], length: C.ExcercisePopup.lengthOfReps).background(excerciseVM.rowColor[setNumber])
             }
             
             VStack{
                 
-                    if (setNumber==0){
-                        Text("Weight")
-                    }
-                TextField(excerciseVM.getLastWorkoutWeight(setNumber: setNumber), text: $excerciseVM.weight[setNumber])
-                    .doubleOnly(value: $excerciseVM.weight[setNumber])
-                    .limitInputLength(value: $excerciseVM.weight[setNumber], length: C.ExcercisePopup.lengthOfWeight)
+                if (setNumber==0){
+                    Text("Weight")
+                }
+                TextField("" , text: $excerciseVM.weight[setNumber]).placeholder(when: excerciseVM.weight[setNumber].isEmpty, alignment: .center) {
+                    Text(excerciseVM.getLastWorkoutWeight(setNumber: setNumber)).foregroundColor(.gray)
+                        .doubleOnly(value: $excerciseVM.weight[setNumber])
+                        .limitInputLength(value: $excerciseVM.weight[setNumber], length: C.ExcercisePopup.lengthOfWeight)
+                }.background(excerciseVM.rowColor[setNumber])
             }
-            
-        }.background(excerciseVM.rowColor[setNumber])
-            .multilineTextAlignment(.center)
-            .keyboardType(.numberPad)
+        }
+        .foregroundColor(.black)
+        .multilineTextAlignment(.center)
+        .keyboardType(.numberPad)
     }
 }
 

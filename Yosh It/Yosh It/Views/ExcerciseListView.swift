@@ -25,10 +25,13 @@ struct ExcerciseListView: View{
                         Listitem(item: excercise)
                     }).disabled(excercise.isComplete)
                 }
+                if(excerciseVM.tempSplit.excercises.isEmpty){
+                    Spacer().listRowBackground(Color.clear)
+                }
             }
             .clearListBackground()
-            .background(CustomColours.Background.ignoresSafeArea(.all))
         }
+        .background(CustomColours.Background.ignoresSafeArea(.all))
     }
     
 }

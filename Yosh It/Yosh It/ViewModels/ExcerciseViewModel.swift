@@ -31,7 +31,7 @@ class ExcerciseViewModel: ObservableObject{
     
     private var cancellableSet: Set<AnyCancellable> = []
     
-    //publsiher to ensure username is long enough
+    //publsiher to ensure user loaded
     private var isUserLoadedPublisher: AnyPublisher<Bool, Never>{
         $tempSplit
             .map{   i in
@@ -112,6 +112,7 @@ class ExcerciseViewModel: ObservableObject{
         isUserLoadedPublisher
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] in
+                print($0)
                 self?.isListVisible = $0
             })
             .store(in: &cancellableSet)

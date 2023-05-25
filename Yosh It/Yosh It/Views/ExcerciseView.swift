@@ -57,7 +57,7 @@ struct ExcerciseView: View {
                         }
                     }.padding()
                 }.excerciseTextFieldAlert(excerciseVM: excerciseVM)
-            }.edgesIgnoringSafeArea(.bottom)
+            }
             
             if(excerciseVM.isDoingExcercise){
                 GeometryReader { _ in
@@ -71,8 +71,7 @@ struct ExcerciseView: View {
                         .edgesIgnoringSafeArea(.all)
                 )
             }
-        }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
-        .onAppear(perform: {
+        }.onAppear(perform: {
             let indexSplit = user.getSplitIndex(name: SplitName)
             excerciseVM.user = user
             excerciseVM.tempSplit = user.splits[indexSplit]
