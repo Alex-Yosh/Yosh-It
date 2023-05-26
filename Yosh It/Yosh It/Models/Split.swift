@@ -13,13 +13,21 @@ struct Split: Identifiable{
     internal var id = UUID()
     var name: String
     var excercises: [Excercise]
-    var lastDateCompleted: Date?
+    var previousDates: [Date]
+    var lastTotalWeight: Double
+    var lastTotalReps: Int
+    var lastTotalSets: Int
     
     
     
     init(name: String) {
         self.name = name
         excercises = []
+        lastTotalSets = 0
+        lastTotalReps = 0
+        lastTotalWeight = 0.0
+        previousDates = []
+        
     }
     
     func getExcerciseIndex(name: String) -> Int{
@@ -35,7 +43,7 @@ struct Split: Identifiable{
     func getLastDateCompleted() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "E MMM d y"
-        return formatter.string(from: lastDateCompleted!)
+        return formatter.string(from: previousDates[0])
     }
     
 }

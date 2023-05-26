@@ -41,10 +41,12 @@ struct CellContentView: View{
             ZStack{
                 Rectangle().frame(minWidth: 100, maxWidth: .infinity, minHeight: 150).foregroundColor(CustomColours.FaintIndigo).border(.black, width: 5).cornerRadius(10)
                 VStack(){
-                    Text(selectedSplit.name).foregroundColor(.black).padding()
-                    if(selectedSplit.lastDateCompleted != nil){
-                        Text("Last Date Completed:\n" + selectedSplit.getLastDateCompleted()).foregroundColor(.black)
-                            .font(.system(size: 16))
+                    Text(selectedSplit.name)
+                        .font(.system(size: 30, weight: .heavy, design: .default))
+                        .foregroundColor(.black)
+                        .padding()
+                    if(selectedSplit.previousDates.count>0){
+                        Text("Last Date Completed:\n" + selectedSplit.getLastDateCompleted()).foregroundColor(.black).font(.system(size: 12))
                     }
                 }
             }

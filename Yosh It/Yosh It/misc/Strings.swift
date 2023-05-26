@@ -25,6 +25,16 @@ struct Strings{
     struct ResistancePage{
         static let pageName = "Resistance"
         
+        static let lastWorkout = "Last Workout"
+        static let lastWorkoutSplitName = "Split: "
+        static let lastWorkoutDate = "Date: "
+        static let lastWorkoutTotalWeight = "Total Weight: "
+        static let lastWorkoutTotalSets = "Total Sets: "
+        static let lastWorkoutTotalReps = "Total Reps: "
+        
+        
+        static let previous = "Previous"
+        
         static let isAddedSuccessfully = "Added Succesfully"
         static let isEmptyError = "Name was left empty"
         static let isAlreadyError = "Name is already used"

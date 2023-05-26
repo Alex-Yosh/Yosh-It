@@ -23,12 +23,17 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>UnitTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 		<key>Yosh It.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -39,6 +44,11 @@
 			<true/>
 		</dict>
 		<key>FA3A0D5D2A12C9570013A620</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA3A0DE72A12E6850013A620</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,6 +10,10 @@ import SwiftUI
 
 struct C{
     
+    struct User{
+        static let previousSplitSize = 5
+    }
+    
     struct SignUpPage{
         static let numUsernameRequirements = 2
         static let numPasswordRequirements = 3

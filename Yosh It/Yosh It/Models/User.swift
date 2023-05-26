@@ -15,15 +15,15 @@ class User: ObservableObject{
     
     // create a private initializer
     private init() {
-            lastSplit = Split(name: "")
-            splits = []
+        splits = []
+        previousSplits=[]
     }
     
     @Published var splits: [Split]
-    var lastSplit: Split
+    @Published var previousSplits: [Split]
     private var username: String?
     private var password: String?
-
+    
     
     func getSplitIndex(name: String) -> Int{
         for i in (0..<splits.count){

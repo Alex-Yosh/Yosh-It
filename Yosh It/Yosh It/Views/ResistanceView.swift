@@ -11,7 +11,7 @@ import SwiftUI
 struct ResistanceView: View {
     
     @StateObject var user = User.userObj
-    @StateObject var ResistnaceVM  = ResistanceViewModel()
+    @StateObject var ResistanaceVM  = ResistanceViewModel()
     
     var body: some View {
         NavigationView(){
@@ -19,12 +19,19 @@ struct ResistanceView: View {
                 TopBarView(title: Strings.ResistancePage.pageName)
                 
                 ScrollView(){
-                    ResistanceGridView(ResistnaceVM: ResistnaceVM ).navigationBarHidden(true)
+                    if(user.previousSplits.count > 0){
+                        HStack(alignment: .top, spacing: 0){
+                            ResistanceLastWorkoutView()
+                            ResistancePreviousView()
+                        }
+                    }
+                    
+                    ResistanceGridView(ResistnaceVM: ResistanaceVM ).navigationBarHidden(true)
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
             
         }.onAppear(perform: {
-            ResistnaceVM.user = user
+            ResistanaceVM.user = user
         }).environmentObject(user)
             .navigationViewStyle(StackNavigationViewStyle())
     }

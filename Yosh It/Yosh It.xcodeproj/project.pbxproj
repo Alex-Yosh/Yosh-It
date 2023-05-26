@@ -25,9 +25,9 @@
 		FA3A0DFD2A12E70E0013A620 /* SplitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0DFC2A12E70E0013A620 /* SplitTests.swift */; };
 		FA3A0DFF2A1324980013A620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */; };
 		FA3A0E002A1324980013A620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3A0DFE2A1324980013A620 /* GoogleService-Info.plist */; };
-		FA3A0E032A132A0E0013A620 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */; };
-		FA3A0E052A132A0E0013A620 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E042A132A0E0013A620 /* FirebaseAuth */; };
-		FA3A0E072A132A0F0013A620 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E062A132A0F0013A620 /* FirebaseFirestore */; };
+		FA3A0E032A132A0E0013A620 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E022A132A0E0013A620 /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FA3A0E052A132A0E0013A620 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E042A132A0E0013A620 /* FirebaseAuth */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FA3A0E072A132A0F0013A620 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3A0E062A132A0F0013A620 /* FirebaseFirestore */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA3A0E0A2A1405410013A620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E092A1405410013A620 /* User.swift */; };
 		FA3A0E0B2A1405410013A620 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E092A1405410013A620 /* User.swift */; };
 		FA3A0E0D2A1405540013A620 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E0C2A1405540013A620 /* Excercise.swift */; };
@@ -43,8 +43,10 @@
 		FA3A0E202A167F340013A620 /* TextFieldCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */; };
 		FA3A0E252A16BF330013A620 /* ExcerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0E242A16BF330013A620 /* ExcerciseViewModelTests.swift */; };
 		FA3A0E262A16C4BD0013A620 /* CustomColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0889296B64D4001C7BD3 /* CustomColours.swift */; };
+		FA6CD8DD2A2268DF002B0CFC /* ResistancePreviousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CD8DC2A2268DF002B0CFC /* ResistancePreviousView.swift */; };
 		FAAE6E542A1EC1B50073EFC1 /* ListCustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6E532A1EC1B50073EFC1 /* ListCustomModifiers.swift */; };
 		FAAE6E582A1ED2540073EFC1 /* DialogCustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6E572A1ED2540073EFC1 /* DialogCustomModifier.swift */; };
+		FAAE6E5A2A20F5E40073EFC1 /* ResistanceLastWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6E592A20F5E40073EFC1 /* ResistanceLastWorkoutView.swift */; };
 		FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */; };
 		FADD087A296B5E79001C7BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD0879296B5E79001C7BD3 /* Assets.xcassets */; };
 		FADD087D296B5E79001C7BD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD087C296B5E79001C7BD3 /* Preview Assets.xcassets */; };
@@ -88,8 +90,10 @@
 		FA3A0E1B2A157E730013A620 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		FA3A0E1E2A167F340013A620 /* TextFieldCustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomModifiers.swift; sourceTree = "<group>"; };
 		FA3A0E242A16BF330013A620 /* ExcerciseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModelTests.swift; sourceTree = "<group>"; };
+		FA6CD8DC2A2268DF002B0CFC /* ResistancePreviousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistancePreviousView.swift; sourceTree = "<group>"; };
 		FAAE6E532A1EC1B50073EFC1 /* ListCustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCustomModifiers.swift; sourceTree = "<group>"; };
 		FAAE6E572A1ED2540073EFC1 /* DialogCustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCustomModifier.swift; sourceTree = "<group>"; };
+		FAAE6E592A20F5E40073EFC1 /* ResistanceLastWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistanceLastWorkoutView.swift; sourceTree = "<group>"; };
 		FAD0AFB52A0B1E9D00657145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD0872296B5E77001C7BD3 /* Yosh It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yosh It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD0875296B5E77001C7BD3 /* Yosh_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yosh_ItApp.swift; sourceTree = "<group>"; };
@@ -222,13 +226,15 @@
 			isa = PBXGroup;
 			children = (
 				FADD0883296B611B001C7BD3 /* ResistanceView.swift */,
+				FAAE6E592A20F5E40073EFC1 /* ResistanceLastWorkoutView.swift */,
+				FA6CD8DC2A2268DF002B0CFC /* ResistancePreviousView.swift */,
 				FA1C3FB92A0EB38200014CA2 /* ResistanceGridView.swift */,
+				FA3A0E1B2A157E730013A620 /* PopUpView.swift */,
 				FADD0885296B61BB001C7BD3 /* TopBarView.swift */,
 				FAF390AE2A0AC776006E9C96 /* SignUpView.swift */,
 				FA1C3FB52A0DA8B200014CA2 /* LoginView.swift */,
 				FA3A0E152A140B100013A620 /* ExcerciseView.swift */,
 				FA3A0E182A1525CE0013A620 /* ExcerciseListView.swift */,
-				FA3A0E1B2A157E730013A620 /* PopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,12 +389,14 @@
 				FAF390AF2A0AC776006E9C96 /* SignUpView.swift in Sources */,
 				FADD0884296B611B001C7BD3 /* ResistanceView.swift in Sources */,
 				FA3A0E192A1525CE0013A620 /* ExcerciseListView.swift in Sources */,
+				FAAE6E5A2A20F5E40073EFC1 /* ResistanceLastWorkoutView.swift in Sources */,
 				FA3A0E102A1405650013A620 /* Workout.swift in Sources */,
 				FA3A0E1C2A157E730013A620 /* PopUpView.swift in Sources */,
 				FA1C3FB62A0DA8B200014CA2 /* LoginView.swift in Sources */,
 				FADD0886296B61BB001C7BD3 /* TopBarView.swift in Sources */,
 				FADD0876296B5E77001C7BD3 /* Yosh_ItApp.swift in Sources */,
 				FA3A0E0A2A1405410013A620 /* User.swift in Sources */,
+				FA6CD8DD2A2268DF002B0CFC /* ResistancePreviousView.swift in Sources */,
 				FA3A0E162A140B100013A620 /* ExcerciseView.swift in Sources */,
 				FAF390AB2A0AC62F006E9C96 /* ResistanceViewModel.swift in Sources */,
 				FA3A0E132A1405810013A620 /* ExcerciseViewModel.swift in Sources */,

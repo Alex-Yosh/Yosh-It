@@ -21,4 +21,28 @@ struct Workout{
         sets = Sets
         reps = Reps
     }
+    
+    func getTotalSets() -> Int{
+        var total = 0
+        for i in sets!{
+            total += i
+        }
+        return total
+    }
+    
+    func getTotalReps() -> Int{
+        var total = 0
+        for i in reps!{
+            total += i
+        }
+        return total
+    }
+    
+    func getTotalWeight() -> Double{
+        var total = 0.0
+        for i in 0...(sets!.count-1){
+            total += weight![i]*Double(reps![i]*sets![i])
+        }
+        return total
+    }
 }

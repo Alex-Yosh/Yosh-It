@@ -112,7 +112,6 @@ class ExcerciseViewModel: ObservableObject{
         isUserLoadedPublisher
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] in
-                print($0)
                 self?.isListVisible = $0
             })
             .store(in: &cancellableSet)
@@ -198,16 +197,35 @@ class ExcerciseViewModel: ObservableObject{
     
     func completeSplit() {
         let indexSplit = user.getSplitIndex(name: tempSplit.name)
+        var totalWeight = 0.0
+        var totalReps = 0
+        var totalSets = 0
         if (isCheckmark){
             for i in (0..<tempSplit.excercises.count){
                 tempSplit.excercises[i].isComplete = false
+                totalSets += tempSplit.excercises[i].lastWorkout().getTotalSets()
+                totalReps += tempSplit.excercises[i].lastWorkout().getTotalReps()
+                totalWeight += tempSplit.excercises[i].lastWorkout().getTotalWeight()
             }
         }
         for i in (0..<tempSplit.excercises.count){
             tempSplit.excercises[i].isComplete = false
         }
+        
+        tempSplit.previousDates.insert(Date.now, at: 0)
+        tempSplit.lastTotalReps = totalReps
+        tempSplit.lastTotalSets = totalSets
+        tempSplit.lastTotalWeight = totalWeight
         user.splits[indexSplit] = tempSplit
-        user.splits[indexSplit].lastDateCompleted = Date.now
+        
+        let index = user.previousSplits.firstIndex(where: { split in
+            split.name == tempSplit.name
+        })
+        if (index != nil){
+            user.previousSplits.remove(at: index!)
+        }
+        user.previousSplits.insert(tempSplit, at: 0)
+        
     }
     
     //deletes all data about sets, reps, weight
