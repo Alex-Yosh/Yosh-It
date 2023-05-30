@@ -16,7 +16,10 @@ class ResistanceViewModel: ObservableObject{
     @Published var isAddingDialog = false
     @Published var isErrorDialog = false
     
+    var dataBase: Firebase = Firebase()
+    
     init(){
+        dataBase.readNames()
     }
     
     
@@ -37,6 +40,7 @@ class ResistanceViewModel: ObservableObject{
         
         
         user.splits.append(Split(name: name))
+        dataBase.sendNames()
         return Strings.ResistancePage.isAddedSuccessfully
         
     }

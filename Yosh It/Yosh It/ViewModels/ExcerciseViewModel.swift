@@ -16,6 +16,9 @@ class ExcerciseViewModel: ObservableObject{
     @Published var tempSplit: Split!
     var excerciseIndex: Int!
     
+    
+    var dataBase = Firebase()
+    
     @Published var isDoingExcercise = false
     @Published var isAddingDialog = false
     
@@ -144,6 +147,7 @@ class ExcerciseViewModel: ObservableObject{
         
         user.splits[indexSplit].excercises.append(Excercise(Name: name))
         tempSplit.excercises.append(Excercise(Name: name))
+        dataBase.sendNames()
         return Strings.ExcercisePage.isAddedSuccessfully
     }
     

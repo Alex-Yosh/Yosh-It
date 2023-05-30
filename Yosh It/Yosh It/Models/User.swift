@@ -10,6 +10,7 @@ import Combine
 
 
 class User: ObservableObject{
+    var uid = UUID().uuidString
     //singleton
     static let userObj = User()
     
@@ -17,11 +18,12 @@ class User: ObservableObject{
     private init() {
         splits = []
         previousSplits=[]
+        username = "testUsername"
     }
     
     @Published var splits: [Split]
     @Published var previousSplits: [Split]
-    private var username: String?
+    var username: String
     private var password: String?
     
     

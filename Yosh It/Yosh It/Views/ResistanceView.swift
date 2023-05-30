@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAnalyticsSwift
 
 struct ResistanceView: View {
     
@@ -27,6 +28,7 @@ struct ResistanceView: View {
                     }
                     
                     ResistanceGridView(ResistnaceVM: ResistanaceVM ).navigationBarHidden(true)
+                        .analyticsScreen(name: "\(ResistanceGridView.self)")
                 }
             }.background(CustomColours.Background).edgesIgnoringSafeArea(.bottom)
             
